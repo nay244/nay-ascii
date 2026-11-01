@@ -229,6 +229,34 @@ test("a resize refits, and crossing a banner's shape restarts once", async () =>
   piece.destroy();
 });
 
+test("a held frame is drawn again when its box changes size, and only then", async () => {
+  // A held piece has no loop to measure again, and its canvas takes its size when it is drawn, so a resize that keeps the width
+  // still has to restart it. A moving piece measures itself again within half a second and is left alone.
+  const dom = installFakeDom(), box = fakeBox(405, 228), pre = fakePre(), fake = fakePlay();
+  const mod = await loadPiece("project-azure-virtualfw");
+  const piece = mountPiece(box, pre, "project-azure-virtualfw", mod, { play: fake.play, quiet: true });
+  assert.equal(fake.started.length, 1);
+  dom.resize(box, 405, 228); // what a ResizeObserver reports when it first looks, with nothing changed
+  assert.equal(fake.started.length, 1, "a same-size report restarted the held player");
+  dom.resize(box, 200, 112);
+  assert.equal(fake.started.length, 2, "the held frame kept its old size");
+  assert.equal(fake.stopped[0], 1);
+  assert.equal(fake.stopped[1], 0);
+  assert.deepEqual(fake.started.map((m) => m.meta.cols), [192, 192]);
+  assert.ok(Math.abs(parseFloat(pre.style.fontSize) - 200 / (192 * 0.602)) < 0.01);
+  dom.resize(box, 200, 112);
+  assert.equal(fake.started.length, 2, "a second same-size report restarted the held player");
+  piece.destroy();
+
+  // The same shrink on a moving piece restarts nothing.
+  const moving = fakePlay(), animated = mountPiece(fakeBox(405, 228), fakePre(), "project-azure-virtualfw", mod, { play: moving.play, quiet: false });
+  const target = dom.observers.at(-1)!.targets[0] as { clientWidth: number; clientHeight: number };
+  dom.resize(target, 405, 228);
+  dom.resize(target, 200, 112);
+  assert.equal(moving.started.length, 1, "a moving piece was restarted by a resize that kept its width");
+  animated.destroy();
+});
+
 test("a fixed width beats the box's shape", async () => {
   const dom = installFakeDom(), box = fakeBox(805, 410), pre = fakePre(), fake = fakePlay();
   const piece = mountPiece(box, pre, "project-azure", await loadPiece("project-azure"), { play: fake.play, cols: 62 });

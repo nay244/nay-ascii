@@ -23,11 +23,18 @@ export function mountPiece(box: HTMLElement, pre: HTMLElement, slug: string, mod
     stopPlayer?.();
     stopPlayer = play(pre, shaped, { look: { look: "dots" } });
   };
-  // The text follows the box on every resize. The piece itself is redrawn only when its width changes.
+  // The text follows the box on every resize. The piece itself is redrawn only when its width changes, except that a held
+  // frame has no loop to size its canvas again, so it is drawn again whenever the text size changes.
+  let px = 0;
   const fit = () => {
     const want = colsFor(mod.meta, box.clientWidth, box.clientHeight, fixed);
-    pre.style.fontSize = `${fontPx(slug, mod.meta, want, box.clientWidth, box.clientHeight)}px`;
-    if (want === cols) return;
+    const size = fontPx(slug, mod.meta, want, box.clientWidth, box.clientHeight), resized = size !== px;
+    px = size;
+    pre.style.fontSize = `${size}px`;
+    if (want === cols) {
+      if (quiet && resized) start();
+      return;
+    }
     cols = want;
     // Our own pieces draw at whatever width they are asked for; a library piece has one.
     shaped = own ? { ...mod, meta: { ...mod.meta, cols: want }, default: () => mod.default(want) } : mod;
