@@ -1,0 +1,51 @@
+/* The career page's rules, ported from the mockup's sidebar layout. The header, the section names, the tag and the chips
+   are shared. The mockup's .main spacing sits here, on the page's own element, because .main is the layout's. */
+.page-career {
+  padding: 12px 0 52px;
+
+  .page-title { font-size: 15px; font-weight: 500; margin: 0 0 2px; }
+  .page-lede { color: var(--soft); margin: 0 0 6px; max-width: 64ch; }
+  .links { display: flex; gap: 18px; margin: 0 0 8px; font-size: 12px; }
+  .links a, .see { color: var(--link); text-decoration: none; transition: color 150ms ease; }
+  .links a:hover, .see:hover { color: var(--hero); }
+
+  .role h3 { font-size: 14px; font-weight: 500; color: var(--hero); margin: 0; }
+  .org { color: var(--soft); }
+  .dates { color: var(--faint); font-size: 12px; }
+  .points { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 6px; }
+  .points li { position: relative; padding-left: 16px; color: var(--text); max-width: 72ch; }
+  .points li::before { content: ""; position: absolute; left: 3px; top: 0.72em; width: 4px; height: 4px; border-radius: 50%; background: var(--faint); }
+  .see { display: inline-block; margin-top: 8px; font-size: 12px; }
+
+  /* A narrow column for the latest role, certifications and skills; the wide one for history. */
+  .split { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.6fr); gap: 40px; align-items: start; margin-top: 26px; }
+  .split .sec:first-child { margin-top: 0; }
+  .now-card { border: 1px solid var(--card-line); border-radius: 10px; background: var(--card); padding: 14px; display: flex; flex-direction: column; gap: 2px; }
+  .now-card .kind { margin-bottom: 4px; }
+  .cert-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  .cert-list li { display: flex; flex-direction: column; border-left: 2px solid var(--card-line); padding-left: 12px; }
+  .cert-list .name { color: var(--hero); }
+  .cert-list .meta { color: var(--faint); font-size: 11.5px; }
+  .cert-list a { color: var(--link); font-size: 11.5px; text-decoration: none; }
+  .stack-skills { display: grid; gap: 14px; }
+  .stack-skills .label { display: block; color: var(--faint); font-size: 12px; margin-bottom: 6px; }
+  .history { display: grid; gap: 24px; }
+  .history .dates { margin-bottom: 2px; }
+  /* Roles at one employer hang off a short dotted line, newest first, so a promotion reads as one step. */
+  .employer .emp { font-size: 14px; font-weight: 500; color: var(--hero); margin: 0; }
+  .roles { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 22px; }
+  .roles > li { position: relative; padding-left: 26px; }
+  .roles > li::before { content: ""; position: absolute; left: 1px; top: 7px; width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid var(--work); background: var(--pond); }
+  .roles > li:first-child::before { background: var(--work); }
+  .roles > li:not(:last-child)::after { content: ""; position: absolute; left: 4px; top: 19px; bottom: -27px; width: 4px; background: radial-gradient(circle, var(--rule-dot) 1px, transparent 1.4px) center top / 4px 5px repeat-y; }
+  .roles h4 { font-size: 13px; font-weight: 500; color: var(--hero); margin: 0; }
+
+  @media (max-width: 720px) {
+    .split { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+    .split .sec:first-child { margin-top: 0; }
+    .split > div + div .sec:first-child { margin-top: 34px; }
+  }
+  @media (max-width: 640px) {
+    padding: 8px 0 40px;
+  }
+}
