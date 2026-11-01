@@ -28,6 +28,19 @@ a:focus-visible, .hdr button:focus-visible { outline: 2px solid var(--focus); ou
 /* A diagram's text is sized to its box before any script runs, in container units (see Art). Its corners are rounded. */
 .illo[data-piece] { container-type: inline-size; border-radius: 6px; }
 
+/* A dot drawing (see components/DotArt.tsx). Its box takes the shape's proportions from the component, the canvas fills it, and each
+   label sits on it by percentage: l and r hang the text to the right or left of its spot, plate backs it so no dots run through the
+   text, todo marks a place still to fill in, and on lights the label of the stop being hovered. Art's boxes are [data-piece], so they
+   are left out here. */
+.illo:not([data-piece]) { position: relative; container-type: inline-size; }
+.illo:not([data-piece]) canvas { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
+.lbl { position: absolute; transform: translate(-50%, -50%); white-space: nowrap; line-height: 1.25; font-size: clamp(10px, 3.4cqw, 12px); color: var(--text); pointer-events: none; transition: color 150ms ease; }
+.lbl.l { transform: translate(0, -50%); }
+.lbl.r { transform: translate(-100%, -50%); }
+.lbl.plate { background: var(--plate); padding: 0 0.3em; border-radius: 3px; }
+.lbl.todo { color: var(--todo); }
+.lbl.on { color: var(--stop); }
+
 /* A section's name in small faint type, trailed by a dotted rule like the pond's dots. A page may change its spacing. */
 .sec { display: flex; align-items: center; gap: 12px; font-size: 12px; font-weight: 400; color: var(--faint); letter-spacing: 0.04em; margin: 34px 0 16px; }
 .sec::after { content: ""; flex: 1; height: 4px; background: radial-gradient(circle, var(--rule-dot) 0.9px, transparent 1.2px) left center / 4px 4px repeat-x; }

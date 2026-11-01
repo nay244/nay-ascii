@@ -1,0 +1,68 @@
+/* The Japan 2023 post's rules, ported from the mockup. The header, the tag, the section names, the back link, the pager's links and
+   the dot drawing's box and labels are shared. The mockup's .main spacing sits here, on the page's own element, because .main is the
+   layout's. */
+.page-post {
+  padding: 4px 0 48px;
+
+  .back { margin-bottom: 18px; }
+
+  /* Title and summary first, then the post's dot drawing as a wide band beneath them. */
+  .hero { display: grid; gap: 22px; }
+  .meta { display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: baseline; }
+  .dates { color: var(--faint); font-size: 12px; }
+  .p-title { font-size: 20px; font-weight: 500; line-height: 1.35; margin: 6px 0 10px; }
+  .p-sum { color: var(--soft); margin: 0; max-width: 72ch; }
+  .art { display: block; width: 100%; aspect-ratio: 3 / 1; border: 1px solid var(--card-line); border-radius: 10px; }
+
+  .facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin: 28px 0 0; }
+  .facts div { border-top: 1px solid var(--rule); padding-top: 10px; }
+  .facts dt { color: var(--faint); font-size: 11.5px; }
+  .facts dd { margin: 2px 0 0; font-size: 18px; color: var(--hero); }
+
+  .sec { margin: 40px 0 16px; }
+
+  /* The route stays in view while the days scroll past; hovering a day ripples its stop. */
+  .log { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: start; }
+  .map { position: sticky; top: 16px; margin: 0; border: 1px solid var(--card-line); border-radius: 10px; background: var(--card); padding: 10px; display: flex; flex-direction: column; gap: 8px; }
+  .map figcaption { color: var(--faint); font-size: 11.5px; }
+
+  .days { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; }
+  .days > li { position: relative; padding-left: 26px; }
+  .days > li::before { content: ""; position: absolute; left: 1px; top: 7px; width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid var(--stop); background: var(--pond); transition: background 150ms ease; }
+  .days > li:hover::before { background: var(--stop); }
+  .days > li:not(:last-child)::after { content: ""; position: absolute; left: 4px; top: 19px; bottom: -23px; width: 4px; background: radial-gradient(circle, var(--rule-dot) 1px, transparent 1.4px) center top / 4px 5px repeat-y; }
+  .days h4 { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 10px; font-size: 13px; font-weight: 500; color: var(--hero); margin: 0; }
+  .days h4 .when { color: var(--faint); font-size: 11.5px; font-weight: 400; }
+  .acts { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 2px; }
+  .acts li { position: relative; padding-left: 14px; color: var(--text); }
+  .acts li::before { content: ""; position: absolute; left: 2px; top: 0.72em; width: 4px; height: 4px; border-radius: 50%; background: var(--faint); }
+
+  /* Where the money went: one row of dots per category, longest first, with the value at the tip. */
+  .spend { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 32px; align-items: start; }
+  .bars { width: 100%; border-collapse: collapse; }
+  .bars caption { text-align: left; color: var(--faint); font-size: 11.5px; padding-bottom: 8px; }
+  .bars th { width: 118px; padding: 3px 12px 3px 0; font-weight: 400; color: var(--soft); text-align: left; white-space: nowrap; transition: color 150ms ease; }
+  .bars td { padding: 3px 0; }
+  .bars tr:hover th { color: var(--hero); }
+  .tip { display: flex; align-items: center; gap: 8px; }
+  .bar { flex: none; width: calc((100% - 52px) * var(--p) / 45.9); min-width: 8px; height: 12px; background: radial-gradient(circle, var(--bar) 1.25px, transparent 1.55px) left top / 4px 4px; }
+  .val { color: var(--hero); font-size: 12px; font-variant-numeric: tabular-nums; }
+  .extras { margin: 0; display: grid; gap: 14px; }
+  .extras div { border-top: 1px solid var(--rule); padding-top: 8px; }
+  .extras dt { color: var(--faint); font-size: 11.5px; }
+  .extras dd { margin: 0; color: var(--hero); font-size: 15px; }
+  .extras dd span { color: var(--faint); font-size: 12px; margin-left: 6px; }
+
+  .pager { margin-top: 36px; }
+
+  @media (max-width: 720px) {
+    .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .art { aspect-ratio: 16 / 9; }
+    .log, .spend { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+    .map { position: static; }
+  }
+  @media (max-width: 640px) {
+    padding: 4px 0 40px;
+    .bars th { width: 104px; padding-right: 8px; }
+  }
+}
