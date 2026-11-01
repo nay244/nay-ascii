@@ -1,0 +1,13 @@
+/* The 404's rules, ported from the mockup. The header, the toggle and the phone header are shared. */
+.page-404 {
+  main { width: min(420px, 86%); margin: 6vh auto 60px; }
+  .art { display: block; width: 100%; aspect-ratio: 60 / 47; border: 1px solid var(--card-line); border-radius: 10px; }
+  h1 { font-size: 15px; font-weight: 500; margin: 18px 0 2px; }
+  p { margin: 0; color: var(--soft); }
+  .home { display: inline-block; margin-top: 12px; color: var(--link); text-decoration: none; transition: color 150ms ease; }
+  .home:hover { color: var(--hero); }
+
+  @media (max-width: 640px) {
+    main { width: auto; margin: 16px 16px 40px; }
+  }
+}
