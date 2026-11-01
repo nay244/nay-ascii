@@ -5,6 +5,17 @@ import nextTs from "eslint-config-next/typescript";
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
+  {
+    rules: {
+      // Images are plain lazy <img> tags; the default optimizer isn't available in an export.
+      "@next/next/no-img-element": "off",
+    },
+  },
+  {
+    // mockData() runs the mockups' scripts and returns whatever they define.
+    files: ["tests/**"],
+    rules: { "@typescript-eslint/no-explicit-any": "off" },
+  },
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:
@@ -12,6 +23,11 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // The local-only mockups, which never ship.
+    ".superpowers/**",
+    // Copies of approved files; they must stay byte for byte as they are.
+    "src/lib/art/pieces/**",
+    "src/lib/art/vendor/**",
   ]),
 ]);
 

@@ -1,0 +1,14 @@
+:root {
+  --pond: #1a1917; --hero: #e6e9f2; --link: rgba(230, 233, 242, 0.62); --text: rgba(230, 233, 242, 0.8); --soft: rgba(230, 233, 242, 0.62); --faint: rgba(230, 233, 242, 0.52);
+  --rule: rgba(230, 233, 242, 0.09); --rule-dot: rgba(230, 233, 242, 0.24); --card: rgba(230, 233, 242, 0.025); --card-line: rgba(230, 233, 242, 0.09); --card-hover: rgba(143, 183, 255, 0.42);
+  --focus: #8fb7ff; --work: #8fb7ff; --personal: #ff8a66; --todo: #ff8a66;
+  --c-fw: #ff6a3d; --c-lb: #8fb7ff; --c-ok: #7db57d; --c-dmz: #f2b84b; --c-ven: #ff8fb1; --plate: #201f1d;
+}
+:root[data-theme="light"] {
+  --pond: #eef2f4; --hero: #1f2933; --link: rgba(31, 41, 51, 0.62); --text: rgba(31, 41, 51, 0.84); --soft: rgba(31, 41, 51, 0.72); --faint: rgba(31, 41, 51, 0.62);
+  --rule: rgba(31, 41, 51, 0.1); --rule-dot: rgba(31, 41, 51, 0.28); --card: rgba(255, 255, 255, 0.5); --card-line: rgba(31, 41, 51, 0.1); --card-hover: rgba(61, 111, 182, 0.45);
+  --focus: #3d6fb6; --work: #3d6fb6; --personal: #c8481f; --todo: #c8481f;
+  --c-fw: #d24a26; --c-lb: #3d6fb6; --c-ok: #3d7a4b; --c-dmz: #a8700c; --c-ven: #c4466e; --plate: #f7f9fa;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--pond); color: var(--hero); font: 13px/1.7 Menlo, "SF Mono", Monaco, Consolas, monospace; }
