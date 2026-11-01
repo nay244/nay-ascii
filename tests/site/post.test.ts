@@ -24,7 +24,7 @@ test("the map keeps its stops, and the numbers stay", () => {
   // Nothing else on the page, scripts included, is marked as still to fill in.
   assert.equal((html.match(/class="[^"]*todo/g) ?? []).length, 2);
 });
-test("each bar shows its share, and the facts read label first", () => {
+test("each bar shows its share, and the facts read label first", { skip: !hasMockups }, () => {
   const { SPEND } = mockData("post.html", ["SPEND"], "const days");
   const html = page("/blog/japan-2023"), text = visibleText(html);
   for (const [name, p] of SPEND) assert.ok(text.includes(`${name} ${p}%`), name);
