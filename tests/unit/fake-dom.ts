@@ -89,6 +89,28 @@ export function fakeCanvas(w: number, h: number) {
   };
 }
 
+// A box an art piece is mounted in: a size, inline styles and class names, and nothing else.
+// dom.resize(box, w, h) works on it like on any sized element.
+export function fakeBox(w: number, h: number) {
+  const classes = new Set<string>();
+  return {
+    clientWidth: w,
+    clientHeight: h,
+    style: {} as Record<string, string>,
+    classList: {
+      add: (name: string) => void classes.add(name),
+      remove: (name: string) => void classes.delete(name),
+      contains: (name: string) => classes.has(name),
+      toggle: (name: string, force?: boolean) => {
+        const on = force ?? !classes.has(name);
+        if (on) classes.add(name);
+        else classes.delete(name);
+        return on;
+      },
+    },
+  } as unknown as HTMLElement;
+}
+
 // A pond's stage: a canvas, the intro text (`.hero`) in the lower left, and whatever else it is told about.
 // It answers only for the three things the pond is allowed to look up.
 export function fakeStage(w: number, h: number) {

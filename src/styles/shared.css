@@ -13,6 +13,21 @@ a:focus-visible, .hdr button:focus-visible { outline: 2px solid var(--focus); ou
 .toggle .sun, :root[data-theme="light"] .toggle .moon { display: none; }
 :root[data-theme="light"] .toggle .sun { display: block; }
 
+/* A work or personal tag: a dot and a word, in the page's work or personal colour. */
+.kind { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: var(--work); white-space: nowrap; }
+.kind::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+.kind.personal { color: var(--personal); }
+
+/* Animated art (see components/Art.tsx). A piece keeps its dark ground in both themes, since the pieces are drawn for one.
+   The box sizes itself and the art never pushes it bigger; the canvas is scaled to cover it. Our own diagrams are
+   recreated from the library's Explainers and fit whole. */
+[data-piece] { display: block; position: relative; overflow: hidden; background: #1a1917; }
+[data-piece] pre { position: absolute; margin: 0; font: 12px/1 Menlo, Consolas, "DejaVu Sans Mono", monospace; letter-spacing: 0; white-space: pre; color: #e6e9f2; }
+[data-piece] canvas { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); max-width: none !important; }
+[data-piece].keep-top canvas { top: 0; transform: translateX(-50%); }
+/* A diagram's text is sized to its box before any script runs, in container units (see Art). */
+.illo[data-piece] { container-type: inline-size; }
+
 /* Each page's content sits in one centered column. A page's own root sets its top and bottom space. */
 .main { width: min(832px, 86%); margin-inline: auto; }
 

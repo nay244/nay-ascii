@@ -1,0 +1,29 @@
+/* The projects list's rules, ported from the mockup's dot cards. The header, the tag and the art box are shared.
+   The mockup's .main spacing sits here, on the page's own element, because .main is the layout's. */
+.page-projects {
+  padding: 12px 0 56px;
+
+  .page-title { font-size: 15px; font-weight: 500; margin: 0 0 2px; }
+  .page-lede { color: var(--soft); margin: 0 0 28px; }
+  a.proj { color: inherit; text-decoration: none; }
+  a.proj:focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; border-radius: 10px; }
+  .title { font-size: 14px; color: var(--hero); }
+  .sum { color: var(--soft); }
+  .stack { color: var(--faint); font-size: 11.5px; }
+  .top-line { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .art { display: block; width: 100%; aspect-ratio: 16 / 9; }
+
+  .cards { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .cards li { display: flex; }
+  .cards a.proj { display: flex; flex-direction: column; width: 100%; border: 1px solid var(--card-line); border-radius: 10px; background: var(--card); overflow: hidden; transition: border-color 200ms ease; }
+  .cards a.proj:hover { border-color: var(--card-hover); }
+  .cards .art { border-bottom: 1px solid var(--card-line); }
+  .cards .body { display: flex; flex-direction: column; gap: 6px; padding: 14px 16px 18px; }
+
+  @media (max-width: 720px) {
+    .cards { grid-template-columns: minmax(0, 1fr); }
+  }
+  @media (max-width: 640px) {
+    padding: 8px 0 40px;
+  }
+}
