@@ -27,14 +27,12 @@ export function DotArt({ name, activeStop = null, ref }: {
   useImperativeHandle(ref, () => ({ rippleAt: (u, v) => art.current?.rippleAt(u, v) }), []);
 
   useEffect(() => {
-    if (!canvas.current) return;
+    const el = canvas.current;
     // A browser that can't draw in 2D leaves the labels and the days, which read without the drawing.
-    try {
-      art.current = mountArt(canvas.current, name, canvas.current, currentTheme());
-    } catch {
-      return;
-    }
-    const drawing = art.current;
+    // Anything else that goes wrong in mountArt is a bug, so it is left to surface.
+    if (!el || !el.getContext("2d")) return;
+    const drawing = mountArt(el, name, el, currentTheme());
+    art.current = drawing;
     // setTheme is a method, so it's called on the drawing rather than handed over loose.
     const stopWatching = onThemeChange((theme) => drawing.setTheme(theme));
     return () => {
