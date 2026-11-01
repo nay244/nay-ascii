@@ -1,0 +1,362 @@
+Just a list of beginner material to consume, for different degrees of
+"beginnership". No further analysis on complexity or language has been done so
+don't expect an accurate progression guide for what to read or any kanji
+frequency lists. Just things that I have read and consider enjoyable and
+approachable enough (albeit some with considerable effort). These are my
+**personal** recommendations and are not meant to be taken as objective truth.
+Tastes and interests are very subjective so you may or may not like some stuff
+here, and that's okay too.
+
+Since the level of difficulty in this list fluctuates a lot, the best judge to
+know if something is too easy or too hard for you is... yourself! Just give
+them a try and see where you stand, if something is too complex don't be afraid
+to move to simpler things, it will still be here later when you're ready for it.
+
+NOTE: This list is ever growing. More material is added as I encounter it, so
+it should not be considered exhaustive at all. The opposite actually.
+
+## Manga
+
+### The Clueless Transfer Student is Assertive / 事情を知らない転校生がグイグイくる。
+
+This is an extremely simple manga to follow for beginners. I'd even go as far as
+saying it's probably one of the easiest manga I've found that aren't explicitly
+targeted towards Japanese learners.
+
+The story is somewhat non-existent, it's just a collection of everyday
+activities from a bunch of elementary school students. You don't need to be able
+to follow most of the story and chapters are incredibly short (3-4 pages
+maybe?). If there's something you don't understand in one chapter, it probably
+won't be relevant in the next chapter anyway so you can just skip it.
+
+There are a few "manga" words like 死神 and 呪い that aren't really used
+everyday but for the most part it presents a good list of everyday school
+language that will be useful to beginners.
+
+**This is my #1 recommendation to get started on manga.**
+
+[Link](https://myanimelist.net/manga/115694/Jijou_wo_Shiranai_Tenkousei_ga_Guigui_Kuru)
+
+### Ruri Dragon / ルリドラゴン
+
+This manga is super cute. There's unfortunately only one volume out at the time
+of writing but hopefully more will come. It's very easy to follow and very
+beginner-friendly. It has full furigana and most dialogues are pretty
+straightforward. The story is about a high-school girl who wakes up one day with
+dragon horns and finds out that she is half-dragon. She goes through everyday
+teenage life with all (light-hearted) problems that come with being a half
+dragon but surprisingly there's very little drama involved. It's more fun than
+not. I think it's a great recommendation for a beginner, and plot-wise it's more
+interesting than the Clueless Transfer Student one mentioned above.
+
+[Link](https://www.cmoa.jp/title/252723/)
+
+### Flying Witch / ふらいんぐうぃっち
+
+This manga is great and very simple to read. It has relatively simple grammar
+and everyday words. Since it's a slice of life manga, the style is very relaxed
+and the story is easy to follow. Even if you miss some parts, there's not really
+much progression (as is typical of SoL) so you'll be just fine.
+
+The only downside is that there's a few gags and jokes about some characters
+speaking a very heavy Japanese dialect. The reader is not (usually) supposed to
+understand any of it, and so is the main character, which is where the comical
+situations come out of. However, it can throw off some beginners who might get
+confused because of it.
+
+Bonus points for the anime version being helpful if you watch/read them side by
+side.
+
+[Link](https://myanimelist.net/manga/46258/Flying_Witch)
+
+### Shinmai Shimai no Futari Gohan / 新米姉妹のふたりごはん
+
+This is not a very well known manga (at least in the west I think?) but it is
+a great choice for beginners willing to start reading manga.
+
+It is great, it is cute, story is very lighthearted and generally without any
+*real* progression so, just like Flying Witch, as a slice of life manga you
+won't miss much if you don't understand some parts.
+
+The real strength of this manga is the fact that it focuses mostly on cooking
+and food-related words. As a non-native, it is very hard to come across some
+words for food that we're used to eat every-day. Most of this manga's vocabulary
+relates to the kitchen, the act of eating, or cooking food. It is a real source
+of useful words for beginners (and there are some delicious recipes too).
+
+The grammar and dialogue is also very simple, so you can't really go wrong with
+it.
+
+[Link](https://myanimelist.net/manga/88663/Shinmai_Shimai_no_Futari_Gohan)
+
+### Yotsubato! / よつばと！
+
+This is the go-to manga to recommend to most beginners, at least according to
+most of the Japanese-learning Internet.
+
+Personally speaking, I think this is a great manga for a beginner, but not the
+best for an *absolute* beginner. There's often some slangy/dialectal phrases or
+quirks in the speech of some characters and that can throw off people who aren't
+used to it. I would instead recommend Flying Witch or Futari Gohan over it.
+
+One thing that makes this manga quite special is that there's a lot of online
+resources and [Anki](/blog/japanese/anki/) decks which can help a lot in getting through it.
+
+[Link](https://myanimelist.net/manga/104/Yotsuba_to)
+
+### My Girlfriend is the Best! / 僕の彼女は最高です！
+
+Another very simple cute manga. It's the story of two partners just doing random
+cute everyday thing with comical relief and usual mishaps.
+
+There's not really much to it story-wise but the language is relatively simple
+and the dialogue is very back-and-forth easy to approach.
+
+[Link](https://myanimelist.net/manga/110050/Boku_no_Kanojo_wa_Saikou_desu)
+
+### Girl's Last Tour / 少女終末旅行
+
+This manga is on a *whole* other level above the ones mentioned before it.
+It is *definitely* not the best way of entry for a beginner, mostly because it
+has no [furigana](https://en.wikipedia.org/wiki/Furigana) on it, and because
+sometimes there's quite a few high-level words or phrases that are not easy to
+read.
+
+*However*, this manga has two great benefits:
+
+ * The conversations/dialogues are very sparse and short, meaning the ratio
+   of content/words is very high and you will find yourself making a lot of
+   progress through the story without needing to read everything; and
+ * The anime for this manga covers the first 4 volumes *almost perfectly*. This
+   means you can almost follow the anime with the manga out side-by-side and use
+   it as a script/content guide. Off the top of my head there's only two
+   episodes that actually are two chapters in the inverted order, other than
+   that (and the final episode), it's almost the same 1:1
+
+Also it's mad enjoyable (to me at least) and I love the characters. Give it a go
+even if it seems out of your league, you never know.
+
+[Link](https://myanimelist.net/manga/72467/Shoujo_Shuumatsu_Ryokou)
+
+### Shimeji Simulation / シメジ シミュレーション
+
+From the same author as Girl's Last Tour. The writing style is almost the exact
+same, however the story has definitely more dialogues and events happening so it
+feels a bit harder. Not exactly recommended for a beginner but if you read and
+enjoyed Girl's Last Tour you can't go wrong with this one.
+
+Unfortunately, there's no anime of this (yet) to assist your reading.
+
+[Link](https://myanimelist.net/manga/117851/Shimeji_Simulation)
+
+## Games
+
+### Pokemon Sword/Shield (Nintendo Switch)
+
+In general, the Pokemon series is always recommended for beginners. I only
+played this one in Japanese so I can't say much about the rest. The only thing I
+strongly advise against are the very first Pokemon games (on GameBoy). Those do
+not use any kanji and the kana is super small due to display size limitations,
+it's extremely hard for beginners to recognise where words start and end. You
+will not have a good time.
+
+This said, Pokemon Sword/Shield are on the other hand excellent and very easy
+to follow for the most part. Despite being RPGs, the story is very linear and
+even if you end up not understanding some plot points, you will almost never be
+"stuck" on a puzzle or not knowing where to go.
+
+A big downside however, if you are used to the English version of these games
+or Pokemon in general, is that a *lot* of Pokemon name and combat moves are
+significantly different. So you might feel a bit lost when it comes to Pokemon
+names (and they are always full of puns you might not understand yet).
+
+Be sure to play the game with *kanji* and not in kana only (there's different
+options in the settings). You'll still get *a lot* of kana, but at least the
+kanji will help.
+
+### Pokemon Scarlet/Violet (Nintendo Switch)
+
+Same as Sword/Shield, these pokemon games are also a good entry place for
+beginners. Unlike Sword/Shield which do not have furigana, these entries have
+support for a furigana option which might make them even better as an entry
+point compared to the previously mentioned ones.
+
+### Paper Mario: The Origami King (Nintendo Switch)
+
+Very cute game. The gameplay itself is quite straightforward and not that
+complex (it is a kids game after all). Some of the battles with bosses become
+tricky later on and there are explanations/notes on how to solve them, so
+testing your understanding of the language is actually quite useful.
+
+The game has full furigana support and is relatively easy to follow. There's a
+few instances of weird speech (either archaic or some other speech quirks) but
+for the most part it shouldn't be too hard. There are a few word puzzles and
+trivia with wordplays that might get tricky but, again, it's a good test of
+understanding.
+
+### Snack World: Trejarers Gold (Nintendo Switch / JP Only (?))
+
+I played this game *a long* time ago. It's a pretty cute game overall.
+
+The grammar is relatively simple and it's all with furigana so kanji shouldn't
+be an issue. There are a lot of puns about food (mostly) with character and
+enemy names. The mechanics are very simple in general and if you like dungeon
+crawling light-hearted action RPGs, I think you will enjoy this.
+
+### Dragon Quest X Offline (Nintendo Switch / JP Only)
+
+Dragon Quest X Offline (not to be confused with the online version) is a remake
+of the Dragon Quest X online MMO but meant to be played offline as a single
+player campaign. The story and world is the same as the MMO version, however
+the gameplay is slightly different. One thing that differs from the online
+version is that it also has an option to turn on furigana in every dialogue.
+This makes it quite interesting for beginners and is very beginner friendly.
+
+There are however two downsides that I want to point out:
+
+ * The "full" furigana option does not cover things like quest logs and tutorial
+   windows, so those can be quite hard/tricky to read. Especially if you are
+   lost with a certain quest and don't know where to go.
+ * As is normal Dragon Quest tradition, there's *a lot* of puns, and most
+   characters speak with some weird speeceh quirks and accents which can be
+   quite hard to understand as a non-native speaker.
+
+For this reason, while it looks like a child/beginner friendly game, it might
+not be as easy once you get deeper into it.
+
+## Visual Novels
+
+### Marco and the Galaxy Dragon / マルコと銀河竜
+
+I love this VN, I really enjoyed it a lot. It is a (mostly) [kinetic novel](https://en.wikipedia.org/wiki/Kinetic_novel),
+and it is dialogues for a good 90-95% of the text, so there is no real
+expectation of hard descriptions and settings to understand. This makes it
+naturally easier than similarly-ranked (in complexity) VNs.
+
+This said, it is not really that simple. The main character (and a lot of other
+side characters) speaks with a language quirk so while the grammar is relatively
+easy to follow, most sentence endings will not really be *standard*. But you get
+used to it.
+
+This VN has a lot of hilarious moments and very high quality animated cutscenes
+which makes it almost at the same level as an anime at times.
+
+A **huge** advantage in this game is the ability to enable dual-language
+(EN/JP). While normally I don't think one should rely on English subs when
+immersing in Japanese, as long as you focus *mostly* on the JP version of the
+text, the English translation can be a huge help in understanding.
+
+[Link](https://store.steampowered.com/app/1202540/Marco__The_Galaxy_Dragon/)
+
+### Muv-Luv / マブラヴ
+
+**DISCLAIMER**: Muv-luv is **NOT** easy. It's **not** a recommended reading
+material for absolute beginners. However I put it here for two reasons:
+ * I read it as a relative beginner myself and I was able to enjoy it thanks to
+   being able to just "let go" of the parts I didn't understand and still have
+   fun ([The Science of Letting Go](/blog/japanese/the-science-of-letting-go/)), and
+ * If you follow my list of recommendations "in order" by the time you reach
+   this entry you might be able to enjoy it yourself too.
+
+Muv-Luv is a *massive* VN series. From personal experience, I've only played
+through the first part of the first game (Muv-Luv Extra) so I can't comment
+too much on the rest of the series (but I plan to eventually get to it one
+day).
+
+The language is definitely hard at times, and some characters are *much* *much*
+harder to understand than others (*ahem*月詠 真那*ahem*), but in general I
+susprisingly didn't find it too bad. Just be ready to have a high tolerance for
+looking words up in a dictionary (or skipping them altogether).
+
+A good tip, similarly in vein to Marco and the Galaxy Dragon, is that you can
+switch from English to Japanese back and forth with just the press of a button
+(G if I remember correctly).
+
+One thing I used to do when reading through this is to just read a whole
+section/chapter/conversation in Japanese and try to understand it, then swap to
+English and go over it again using the log/scrollback feature to see what parts
+of the plot I had missed. You can also do this to test your understanding and
+see how much you have improved.
+
+[Link](https://store.steampowered.com/app/802880/MuvLuv/)
+
+### Famicom Detective Club / ファミコン探偵倶楽部 (Nintendo Switch - Remake)
+
+**Disclaimer:** I haven't played these games myself yet but I am planning to do
+so in the future so my opinions here might not be as accurate.
+
+The Famicom Detective Club series of games is a modern remake of the old NES
+detective games with the same title. They are a dualogy of games focused on
+investigating cases in a visual novel / point and click style of gameplay. The
+new games remake have full furigana from the get go, which is quite rare for
+this kind of "complex" type of games.
+
+While they might be complicated for beginners, they also present a good entry
+point into more "serious" material thanks to the furigana that takes away some
+of the pain of dealing with kanji. If you only care about the story and
+narrative immersion, I recommend maybe going through them with a guide as some
+of the investigative points can be quite hard to get right.
+
+## Light Novels
+
+### Kuma Kuma Kuma Bear / くまクマ熊ベアー
+
+Very cute light novel. The first light novel I actually read from front to back
+(at least the first volume).
+
+The language is very simple and straightforward when it comes to grammar and
+pacing. Vocabulary-wise, there are a few words that are very technical/specific
+to videogames and isekai-style fantasy novels, but once you look them up and add
+them to your [Anki](/blog/japanese/anki/) mining deck, the complexity drops significantly for
+the rest of the book.
+
+The story is... alright. It's not the most exciting (at least the first volume),
+but it gets the job done. There's a few points in the book where it becomes
+extremely boring (to me at least) as you get a few chapters where the same story
+you just read is being told from the point of view of another character, which
+really destroys the pacing. However, on the positive side, it's a great way to
+review what you just read and see how much you understood it.
+
+Overall, this is probably the easiest LN I've ever stumbled upon for beginners,
+it's a real godsend.
+
+### Majo no Tabitabi / 魔女の旅々
+
+魔女の旅々 is a very cute and fun read, it is relatively approachable for a
+light novel beginner. It is definitely a step up in complexity from Kuma Kuma
+Kuma Bear, both in vocabulary choice and composition. It definitely feels
+more like a "real" book in the kind of grammar that is used and how the
+narrative unfolds. It's still not particularly complicated as far as books go,
+but if you struggle with Kuma Kuma Kuma Bear, you'll have a harder time with
+this one. Narrative-wise I didn't find it to be a particularly enthralling story
+as it's mostly disconnected chapters with disconnected adventures. It's
+basically Gulliver's Journey but with a cute witch (which is a plus). Some of
+the chapters in the first volume were really good, some others were quite meh.
+
+Still, it's a decent read, I'd recommend it if you're into the genre.
+
+## A note on complexity
+
+Generally speaking, manga are easier to read than games, which are easier than
+visual novels to read, which are easier than light novels to read, which are
+easier than "actual" books/novels to read.
+
+Obviously, exceptions exist and within all of these mediums, the difficulty
+levels can *really* spike and fluctuate a lot. There's some incredibly complex
+visual novels, and some incredibly simple games, and vice versa. It is easier to
+find manga and games targeted toward children than it is to find light novels
+(usually for young teenagers) or visual novels (usually for young adults, and
+often with undertones of pornographical content, unfortunately).
+
+However, exceptions do exist.
+
+## Extras
+
+My good friend Wareya compiled a list of 69b91df4 [web/light novels](http://wiki.wareya.moe/Narou)
+and sorted them by various parameters like kanji, vocabulary, frequency lists,
+etc. It's a great resource to find new *light novel* material to read with
+accurate complexity estimates. It's definitely worth a look.
+
+Another interesting project with complexity and frequency lists can be found at
+[jpdb.io](https://jpdb.io/). If you're looking for reading material I recommend
+paying that site a visit.

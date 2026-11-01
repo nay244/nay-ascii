@@ -1,0 +1,229 @@
+This is a mostly scattered collection of sites, tooling, and all kind of things
+that can help you learn [Japanese](/blog/japanese/japanese-primer/).
+
+## Comprehensive Guides
+
+### [Itazuraneko](https://djtguide.github.io/library/sub.html)
+
+4chan's /djt/ (Daily Japanese Thread) guide. I don't think it's very
+beginner friendly but it has *a lot* of content and sections for all kind of
+topics on how to learn Japanese.
+
+### [Refold](https://refold.la/mia/)
+
+New approach to MIA (see point below). The core ideas a pretty much the same as
+that one, really.
+
+### [Mass Immersion's Approach](https://massimmersionapproach.com/table-of-contents/stage-1/jp-quickstart-guide/)
+
+MIA's specific quick start guide on how to study Japanese using the
+4f5f4e00 tools and resources. MIA's focus is on extensive immersion and
+natural acquisition of the language. It is worth checking out for the amount of
+resources they have mostly related to [Anki](/blog/japanese/anki/) but ever since the split
+most of them are under the [Migaku](/blog/japanese/migaku/) umbrella now.
+
+### [Awesome Japanese Beginner Guide](https://github.com/EngJpDiscordExchange/Awesome-Japanese/blob/master/readme.md#beginner-guide)
+
+This is really a collection of various tools, textbooks, links, etc (similar to
+this very own page). It's a collaborative project from various people at the
+[EJLX](/blog/japanese/ejlx/)# discord.
+
+### [r/LearnJapanese Beginner Wiki](https://www.reddit.com/r/LearnJapanese/wiki/index/startersguide)
+
+The official beginner's wiki for the Japanese learning subreddit.
+
+While personally I would not recommend spending too much time on the subreddit,
+their wiki is a decent entry point before branching off in your studies.
+
+### [Wasabi's Japanese Self-Learning Guides](https://my.wasabi-jpn.com/curriculum/self-learning-japanese/)
+
+Wasabi-Jpn is a site/project with a lot of resources for people learning
+Japanese. Among them, there is also a self-learning guide.
+
+I personally haven't gone through the whole guide myself, however I have read a
+lot of the articles. The way they expose the grammar seems to be solid to me,
+however I have noticed a lot of English mistakes and weird explanations. They
+do not make understanding necessarily harder but they can be a bit weird to
+parse at times. Your mileage may vary.
+
+## Textbooks
+
+### [Genki](http://genki.japantimes.co.jp/index_en)
+
+The go-to de-facto textbook for Japanese beginners that want to learn in a
+classroom-like setting with structured lessons and workbook exercises.
+
+Pretty much everyone will tell you to get Genki if you want to start learning
+Japanese. Personally, I'm not a big fan and I prefer the Japanese for Busy
+People series, however I seem to be in the minority.
+
+### [Japanese For Busy People](https://www.ajalt.org/english/textbooks/japanese_for_busy_people.html)
+
+Another textbook like Genki with a classroom-like lesson structure. It covers
+about the same topics as Genki, and personally it's what I've used myself. I
+would recommend it over Genki as I found it to have a better format, but overall
+they are very similar. Get the kana version, don't even bother with the romaji
+one([Japanese Writing Systems](/blog/japanese/japanese-writing-systems/)).
+
+### [Japanese the Manga Way](https://www.tofugu.com/reviews/japanese-the-manga-way/)
+
+This textbook is very interesting to me. It attempts to provide some kind of
+crash course to Japanese grammar by real world examples of manga snippets.
+It's great for beginners and covers a surprisingly large amount of grammar
+condensed into a relatively low number of pages. I used it mostly to learn
+basic particles and sentence structure as a beginner and it carried me a long
+way, surprisingly.
+
+### [An Introduction to Modern Japanese](https://books.google.co.jp/books/about/An_Introduction_to_Modern_Japanese_Volum.html?id=Gu3k3eiOXWAC&redir_esc=y)
+
+Relatively old (2004?) and hard to come by textbook. I include it here because
+albeit extremely expensive for what it's worth and hard to find online, it
+provides a very "different" approach to modern Japanese learning practices.
+The book itself is very intensive and is not afraid to jump into complex
+Japanese from the get go, every chapter is introduced with a quite meaty
+block of conversation/text to immerse in. No furigana, extensive use of kanji.
+It definitely does not hold a beginner's hand through its material, but I found
+it to be very interesting and appreciated it for what it is.
+
+Definitely **not** essential, but if you can get your hands on a copy as a side
+read it can be quite an experience.
+
+### [Tobira](http://tobiraweb.9640.jp/introduction/%e3%80%8e%e3%81%a8%e3%81%b3%e3%82%89%e3%80%8f%e3%81%ae%e7%89%b9%e5%be%b4/)
+
+Following Genki, this seems to be the de-facto material to use. I see this being
+recommended every time after someone finishes with their Genki studies, although
+I have never tried it myself.
+
+## Grammar
+
+
+### [Imabi](https://imabi.org)
+
+This site is *crazy*. There's pretty much *everything* you may want to know
+about the Japanese language grammar.
+
+However, it's extremely verbose and can be very confusing/convoluted in the
+explanations even for the simplest grammatical concepts. It's great to look up
+individual grammar points if you want to get the finer intricacies and
+subtleties of the language, but I wouldn't use it as a textbook alone.
+
+### [Tae Kim](http://www.guidetojapanese.org/learn/)
+
+Often proclaimed as *the* entry point to learn Japanese grammar for beginners.
+I personally haven't used it much and I've read a lot of criticism about the way
+he approaches some explanations (sometimes even incorrectly). Overall, it seems
+to work really well for a lot of people so it must be doing some things right at
+least.
+
+### [Sakubi](https://sakubi.neocities.org/)
+
+Probably my favorite beginner grammar introduction. I really like the hands on
+approach. I compare it content-wise with Tae Kim with the difference that it's
+much more brisk and straight to the point. The main core of the guide is to
+get you to become *aware* of certain grammar structures and sentence style so
+you can become more independent and start reading as early as possible without
+getting stuck on overly complex explanations or textbook exercises. It's not for
+everybody but it really resonates strongly with me and I think it's a good idea
+to read over it at least once.
+
+### [An Introduction to Japanese](https://pomax.github.io/nrGrammar/)
+
+Probably one of my favorite grammar overviews of the Japanese language when it
+comes to information density and format. It's great for looking up structure
+and grammar to get a thorough mental map of how some aspects of the Japanese
+language works.
+
+It is not to be used as a beginner resource or as a learning textbook. I like
+to re-read it once in a while as my language knowledge improves to further
+cement the fundamentals and broaden my understanding.
+
+Just note that it's been written by a **non native** and I've actually found a
+few inaccuracies or incorrect statements here and there. It's not a big deal
+but just be aware of it and don't get too attached to everything that's written
+there.
+
+### [Cure Dolly's Video Series](https://www.youtube.com/channel/UCkdmU8hGK4Fg3LghTVtKltQ)
+
+While I am not a fan of the video format and the way Dolly speaks (still not
+sure if it's a filter, an act of playing a character, or what), I think the
+way they approach the Japanese grammar is somewhat decent and it at least tries
+to explain grammar concepts in a less English-focused traditional way.
+
+I personally cannot stand the video format and some of the videos can be quite
+inaccurate or reductionist but from a generalist's point of view they aren't
+bad. I do think it'd be better to have them in written format as they are very
+time consuming to watch, but if you're into that sort of stuff it might work for
+you.
+
+### [A dictionary of Basic/Intermediate/Advanced Japanese Grammar](https://www.tofugu.com/reviews/dictionary-of-basic-japanese-grammar/)
+
+These three books are exactly what the name implies. A literal dictionary of all
+possible grammar points in the Japanese language. Use them to look up individual
+grammar points, they are *really* good.
+
+I believe if anyone is even remotely serious about learning the language, these
+are absolutely **essential** to have. I prefer them on paper but there are
+digital version too.
+
+### [A Handbook of Japanese Grammar Patterns](https://www.amazon.com/Handbook-Japanese-Patterns-Teachers-Learners/dp/4874246788)
+
+This book is the complementary of the dictionaries of Japanese grammar mentioned
+above. It is a very hands-on dictionary-like approach to a *huge* number of
+various Japanese grammar patterns. Integrating both of them together provides
+you with an almost 100% coverage of all Japanese grammar points. The
+explanations are very extensive with plenty of examples too.
+If you are feeling confident in your Japanese abilities, there's also a Japanese
+version (the original I think) which I would recommend as it is how this index
+was meant to be experienced.
+
+## Useful Sites to Bookmark
+
+### [Core6000 Neocities's](https://core6000.neocities.org/) and [Itazuraneko's](https://itazuraneko.neocities.org/grammar/masterreference.html) aggregates
+
+This is not a single resource per-se, but they are aggregates/index lists of
+all the dictionaries of japanese grammar and handbook of japanese grammar
+patterns entries (mentioned above) into a single place for easy browsing. **If
+you could only bookmark and save a single website, either one of these would be
+it**. This is *really* almost all you'll ever need.
+
+### [Japanese Counter Index](https://www.benricho.org/kazu/ho.html)
+
+This site has a list of various counters to look up based on what words you
+need to count. It's a very useful resource to have at hand.
+
+### [Tsukuba Web Corpus](http://nlt.tsukuba.lagoinst.info/search/)
+
+This is a great site with a *a lot* of content. It is an aggregate search site
+for various Japanese idioms and grammatical patterns. It is used best to look
+up and drill down specific words and grammar patterns to find out example
+sentences and see how they are used in natural language composition.
+
+### [The Jaded Network SFX](http://thejadednetwork.com/sfx)
+
+Amazing website to look up onomatopoeias and onomatopoeic words.
+
+### [jpdb](https://jpdb.io/)
+
+Very interesting project, it tries to be some kind of Japanese-learning/study
+tool, but where it really shines in my opinion is the curated and well
+maintained list of novels, visual novels, anime, etc sorted by complexity and
+word frequency. It lets you create your own decks, export to anki, and a bunch
+of other fancy stuff.
+
+## Apps
+
+### [Wanikani](https://www.wanikani.com/)
+
+I have personally never used it myself, so I can't give a personal opinion on
+it. However, I know plenty of people that vouch for it as a really good
+alternative to RTK/Core anki decks both for kanji learning and for core
+vocabulary SRS practice. It is a paid resource though, so be aware of that, but
+it seems worth it. If I were starting from scratch myself now I'd probably give
+it a go.
+
+
+### [Yomichan](https://foosoft.net/projects/yomichan/)
+
+This is a must-have browser extension. It tells you how words are read and what
+they mean with dictionary definition as you move your mouse cursor over them
+in your browser.

@@ -1,0 +1,2 @@
+- Search on google for `<word> 数え方`
+ - Look up the word on [benricho](https://www.benricho.org/kazu/)

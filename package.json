@@ -13,6 +13,7 @@
     "verify": "next build && eslint && npm test && npm run test:site"
   },
   "dependencies": {
+    "marked": "^18.1.2",
     "next": "16.4.3",
     "react": "19.3.0",
     "react-dom": "19.3.0"
