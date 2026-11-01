@@ -18,7 +18,8 @@ function isCurrent(pathname: string, href: string) {
 export function Nav() {
   const pathname = usePathname();
   return (
-    <nav>
+    // data-avoid keeps the koi out from under the links on home; on other pages there's no pond and it does nothing.
+    <nav data-avoid>
       {LINKS.map(({ label, href }) => (
         <Link key={href} href={href} aria-current={isCurrent(pathname, href) ? "page" : undefined}>
           {label}
