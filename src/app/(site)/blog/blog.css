@@ -1,0 +1,41 @@
+/* The blog front page's rules, ported from the mockup's front layout (the latest post as a wide card, then each series as a dot
+   card). The header, the section names, the tag and the art box are shared. The mockup's .main spacing sits here, on the page's
+   own element, because .main is the layout's. */
+.page-blog {
+  padding: 12px 0 52px;
+
+  .page-title { font-size: 15px; font-weight: 500; margin: 0 0 2px; }
+  .page-lede { color: var(--soft); margin: 0; max-width: 64ch; }
+  a.card { color: inherit; text-decoration: none; }
+  /* The shared focus ring rounds its element to 4px, which would square off the card's corners while it is focused. */
+  a.card:focus-visible { outline-offset: 4px; border-radius: 10px; }
+  .title { font-size: 14px; color: var(--hero); }
+  .sum { color: var(--soft); }
+  .dates, .count { color: var(--faint); font-size: 12px; }
+  .top-line { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .more { color: var(--link); font-size: 12px; }
+  .art { display: block; width: 100%; aspect-ratio: 16 / 9; }
+
+  .feature { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); border: 1px solid var(--card-line); border-radius: 10px; background: var(--card); overflow: hidden; transition: border-color 200ms ease; }
+  .feature:hover, .series a.card:hover { border-color: var(--card-hover); }
+  .feature .art { height: 100%; aspect-ratio: auto; min-height: 220px; border-right: 1px solid var(--card-line); }
+  .feature .body { display: flex; flex-direction: column; gap: 8px; padding: 18px 20px 20px; }
+  .feature .title { font-size: 16px; }
+  .facts { display: flex; gap: 22px; margin: 4px 0 2px; }
+  .facts div { display: flex; flex-direction: column-reverse; }
+  .facts dt { color: var(--faint); font-size: 11.5px; }
+  .facts dd { margin: 0; font-weight: 500; font-size: 15px; color: var(--hero); }
+  .series { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .series li { display: flex; }
+  .series a.card { display: flex; flex-direction: column; width: 100%; border: 1px solid var(--card-line); border-radius: 10px; background: var(--card); overflow: hidden; transition: border-color 200ms ease; }
+  .series .art { border-bottom: 1px solid var(--card-line); }
+  .series .body { display: flex; flex-direction: column; gap: 6px; padding: 14px 16px 18px; }
+
+  @media (max-width: 720px) {
+    .feature, .series { grid-template-columns: minmax(0, 1fr); }
+    .feature .art { height: auto; min-height: 0; aspect-ratio: 16 / 9; border-right: 0; border-bottom: 1px solid var(--card-line); }
+  }
+  @media (max-width: 640px) {
+    padding: 8px 0 40px;
+  }
+}
