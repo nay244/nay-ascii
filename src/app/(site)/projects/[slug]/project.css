@@ -1,0 +1,92 @@
+/* A project write-up's rules, ported from the mockup. The header, the tag, the back link, the pager's links, the chips and the
+   diagram's corners are shared. The mockup's .main spacing sits here, on the page's own element, because .main is the layout's. */
+.page-project {
+  padding: 4px 0 48px;
+
+  .back { margin-bottom: 18px; }
+
+  /* Title and summary first, then the project's dot drawing as a wide band beneath them. */
+  .hero { display: grid; gap: 22px; }
+  .p-title { font-size: 20px; font-weight: 500; line-height: 1.35; margin: 6px 0 10px; }
+  .p-sum { color: var(--soft); margin: 0; max-width: 72ch; }
+  .art { display: block; width: 100%; aspect-ratio: 3 / 1; border: 1px solid var(--card-line); border-radius: 10px; }
+
+  .facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 28px 0 0; }
+  .facts div { border-top: 1px solid var(--rule); padding-top: 10px; }
+  .facts dt { color: var(--faint); font-size: 11.5px; }
+  .facts dd { margin: 2px 0 0; font-size: 18px; color: var(--hero); }
+  .facts dd span { color: var(--faint); font-size: 14px; }
+
+  .prose { margin-top: 12px; }
+  .prose h3 { font-size: 14px; font-weight: 500; color: var(--hero); margin: 40px 0 10px; }
+  .prose p { color: var(--text); max-width: 72ch; margin: 0 0 12px; }
+  .prose strong { color: var(--hero); font-weight: 500; }
+  .prose code { font: inherit; font-size: 0.95em; color: var(--hero); background: var(--card); border: 1px solid var(--card-line); border-radius: 4px; padding: 0 4px; overflow-wrap: anywhere; }
+  .note { font-size: 12px; }
+
+  /* Before/after diagrams: each piece sits in a panel and takes the piece's own shape. */
+  .diagram { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 4px 0 0; }
+  .panel { margin: 0; border: 1px solid var(--card-line); border-radius: 10px; background: var(--card); padding: 12px; display: flex; flex-direction: column; gap: 8px; }
+  .panel figcaption { font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--c-fw); }
+  .panel.after figcaption { color: var(--c-ok); }
+
+  /* A drawing that stays in view beside its steps; hovering a step lights its place in the drawing. */
+  .flow { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; align-items: start; margin: 4px 0 0; }
+  .flow .panel { position: sticky; top: 16px; }
+  .flow .panel figcaption { color: var(--faint); }
+  .steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+  .steps > li { position: relative; padding-left: 26px; }
+  .steps > li::before { content: ""; position: absolute; left: 1px; top: 7px; width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid var(--c-fw); background: var(--pond); transition: background 150ms ease; }
+  .steps > li:hover::before { background: var(--c-fw); }
+  .steps > li:not(:last-child)::after { content: ""; position: absolute; left: 4px; top: 19px; bottom: -19px; width: 4px; background: radial-gradient(circle, var(--rule-dot) 1px, transparent 1.4px) center top / 4px 5px repeat-y; }
+  .steps h4 { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 10px; font-size: 13px; font-weight: 500; color: var(--hero); margin: 0; }
+  .steps .when { color: var(--faint); font-size: 11.5px; font-weight: 400; }
+  .steps p { margin: 2px 0 0; }
+
+  /* The app's screens in a row; on phones the row scrolls sideways and the next screen peeks in. */
+  .icon-row { display: flex; align-items: center; gap: 12px; margin: 0 0 16px; }
+  .icon-row img { flex: none; border-radius: 11px; border: 1px solid var(--card-line); }
+  .icon-row p { margin: 0; font-size: 12px; color: var(--soft); }
+  .screens { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
+  .screens figure { margin: 0; }
+  .screens img { display: block; width: 100%; height: auto; border-radius: 12.4% / 5.7%; }
+  .screens figcaption { margin-top: 8px; text-align: center; font-size: 11.5px; color: var(--faint); }
+  .prose .screens-note { margin: 12px 0 22px; color: var(--faint); text-align: center; max-width: none; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  th { text-align: left; font-weight: 400; color: var(--faint); font-size: 11.5px; padding: 0 14px 8px 0; }
+  td { border-top: 1px solid var(--rule); padding: 9px 14px 9px 0; color: var(--text); vertical-align: top; }
+  td:first-child { color: var(--hero); white-space: nowrap; }
+  table.long td:first-child { white-space: normal; width: 34%; }
+
+  .decisions { display: grid; gap: 18px; }
+  .decisions h4 { font-size: 13px; font-weight: 500; color: var(--hero); margin: 0 0 4px; }
+  .decisions p { margin: 0; }
+
+  .pager { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--rule); }
+  .pager .next { text-align: right; }
+  .pager .next small { display: block; color: var(--faint); font-size: 11px; }
+
+  @media (max-width: 720px) {
+    .art { aspect-ratio: 16 / 9; }
+    .diagram, .flow { grid-template-columns: minmax(0, 1fr); }
+    .flow { gap: 20px; }
+    .flow .panel { position: static; }
+    .screens { display: flex; overflow-x: auto; scroll-snap-type: x proximity; margin-right: -16px; padding: 0 16px 8px 0; }
+    .screens li { flex: 0 0 58%; scroll-snap-align: start; }
+  }
+  @media (max-width: 640px) {
+    padding: 4px 0 36px;
+    .flow .panel { padding: 8px; }
+    .p-title { font-size: 18px; }
+    .facts { gap: 10px; }
+    .facts dd { font-size: 16px; }
+    /* Tables become one block per row, each cell labelled. */
+    thead { display: none; }
+    table, tbody, tr, td { display: block; }
+    tr { border-top: 1px solid var(--rule); padding: 8px 0; }
+    td { border: 0; padding: 2px 0; white-space: normal; }
+    td:first-child, table.long td:first-child { white-space: normal; width: auto; margin-bottom: 2px; }
+    td[data-label]::before { content: attr(data-label) " · "; color: var(--faint); }
+  }
+}
