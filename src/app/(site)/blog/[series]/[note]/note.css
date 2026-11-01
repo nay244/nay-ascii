@@ -1,0 +1,94 @@
+/* A note page's rules, ported from the mockup. The header, the back link, the pager's links and the focus ring are shared.
+   The mockup's .main spacing sits here, on the page's own element, because .main is the layout's. */
+html:has(.page-note) { scroll-padding-top: 16px; }
+
+.page-note {
+  padding: 4px 0 48px;
+
+  summary:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
+
+  .back { margin-bottom: 14px; }
+
+  /* One dot per note in the series, with a small gap between groups. */
+  .trail { display: flex; flex-wrap: wrap; margin: 0 0 2px -4px; }
+  .trail a { display: grid; place-items: center; width: 14px; height: 18px; }
+  .trail a::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--rule-dot); transition: background 150ms ease, transform 150ms ease; }
+  .trail a:hover::before { background: var(--hero); transform: scale(1.4); }
+  .trail a[aria-current="page"]::before { background: var(--work); transform: scale(1.6); }
+  .trail a.first { margin-left: 8px; }
+  .trail a.first:first-child { margin-left: 0; }
+  .where { color: var(--faint); font-size: 12px; min-height: 1.7em; margin: 0; }
+  .n-title { font-size: 20px; font-weight: 500; line-height: 1.35; margin: 8px 0 8px; }
+  .credit { color: var(--soft); font-size: 12px; margin: 0; }
+  .credit a { color: var(--hero); text-underline-offset: 3px; text-decoration: underline dotted; }
+
+  .read { display: block; margin-top: 22px; }
+  .read.has-toc { display: grid; grid-template-columns: minmax(0, 1fr) 184px; gap: 32px; align-items: start; }
+
+  /* Contents: down the side on a laptop, folded above the note on a phone. Both lists come before the note in the page,
+     so the side list is placed in the second column by hand. */
+  .toc { grid-column: 2; grid-row: 1; position: sticky; top: 16px; max-height: calc(100vh - 32px); overflow-y: auto; font-size: 12px; }
+  .toc-head { display: block; color: var(--faint); letter-spacing: 0.04em; margin-bottom: 8px; }
+  .toc ol, .toc-m ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 3px; }
+  .toc a, .toc-m a { display: block; color: var(--link); text-decoration: none; line-height: 1.45; transition: color 150ms ease; }
+  .toc a:hover, .toc-m a:hover, .toc a.on { color: var(--hero); }
+  .toc li.l3, .toc-m li.l3 { padding-left: 10px; }
+  .toc-m { display: none; margin: 0 0 22px; border: 1px solid var(--card-line); border-radius: 10px; background: var(--card); padding: 8px 12px; font-size: 12px; }
+  .toc-m summary { cursor: pointer; color: var(--soft); }
+  .toc-m ol { margin-top: 8px; gap: 6px; }
+
+  /* The note itself. */
+  .prose { min-width: 0; max-width: 72ch; color: var(--text); overflow-wrap: anywhere; }
+  .prose > :first-child { margin-top: 0; }
+  .prose h2 { font-size: 14px; font-weight: 500; color: var(--hero); margin: 32px 0 10px; }
+  .prose h3 { font-size: 13px; font-weight: 500; color: var(--hero); margin: 24px 0 8px; }
+  .prose h4 { font-size: 13px; font-weight: 400; color: var(--soft); margin: 18px 0 6px; }
+  .prose p { margin: 0 0 12px; }
+  .prose strong { color: var(--hero); font-weight: 500; }
+  .prose a { color: var(--hero); text-decoration: underline dotted; text-underline-offset: 3px; }
+  .prose a:hover { text-decoration-style: solid; }
+  .prose a:has(img) { text-decoration: none; }
+  .prose a[href^="http"]::after { content: " ↗"; color: var(--faint); font-size: 0.85em; }
+  .prose ul, .prose ol { margin: 0 0 12px; padding: 0 0 0 18px; }
+  .prose ul { list-style: none; padding-left: 16px; }
+  .prose ul > li { position: relative; }
+  .prose ul > li::before { content: ""; position: absolute; left: -13px; top: 0.72em; width: 4px; height: 4px; border-radius: 50%; background: var(--faint); }
+  .prose ol > li::marker { color: var(--faint); font-size: 11.5px; }
+  .prose li { margin: 3px 0; }
+  .prose li > ul, .prose li > ol { margin: 3px 0 0; }
+  /* A list item with a paragraph in it, which the converter writes where the mockup had bare text, takes no extra space. */
+  .prose li > p { margin: 0; }
+  /* A screenshot under a step was inline in the mockup, so it sits tight beneath the step's text. */
+  .prose li > figure { margin: 0; }
+  .prose code { font: inherit; font-size: 12px; background: var(--card); border: 1px solid var(--card-line); border-radius: 4px; padding: 0 4px; }
+  .prose hr { border: 0; height: 4px; margin: 24px 0; background: radial-gradient(circle, var(--rule-dot) 0.9px, transparent 1.2px) left center / 4px 4px repeat-x; }
+  .prose blockquote { margin: 0 0 14px; padding: 2px 0 2px 16px; color: var(--soft); background: radial-gradient(circle, var(--rule-dot) 1px, transparent 1.4px) left top / 4px 5px repeat-y; }
+  .prose blockquote p:last-child { margin-bottom: 0; }
+  .prose figure { margin: 14px 0; display: grid; gap: 10px; }
+  .prose img { display: block; max-width: 100%; height: auto; border: 1px solid var(--card-line); border-radius: 8px; }
+  /* Diagrams drawn with dark lines on nothing need a pale sheet behind them in dark mode. */
+  .prose img[src$=".svg"] { background: #f7f9fa; padding: 8px; }
+  .prose ruby rt { font-size: 0.62em; color: var(--faint); }
+  .prose details { margin: 0 0 12px; border: 1px solid var(--card-line); border-radius: 8px; background: var(--card); padding: 6px 12px; }
+  .prose summary { cursor: pointer; color: var(--hero); }
+  .prose details[open] summary { margin-bottom: 8px; }
+  .prose .table { overflow-x: auto; margin: 0 0 14px; }
+  .prose table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .prose th { text-align: left; font-weight: 400; color: var(--faint); padding: 4px 12px 6px 0; border-bottom: 1px solid var(--rule); white-space: nowrap; }
+  .prose td { padding: 6px 12px 6px 0; border-bottom: 1px solid var(--rule); vertical-align: top; min-width: 96px; }
+
+  .pager { display: flex; justify-content: space-between; gap: 12px 24px; flex-wrap: wrap; margin-top: 36px; padding-top: 16px; border-top: 1px solid var(--rule); }
+  .pager a { max-width: 46%; }
+  .pager a:last-child { margin-left: auto; text-align: right; }
+  .pager small { display: block; color: var(--faint); font-size: 11.5px; }
+
+  @media (max-width: 860px) {
+    .read.has-toc { display: block; margin-top: 18px; }
+    .toc { display: none; }
+    .toc-m { display: block; }
+  }
+  @media (max-width: 640px) {
+    padding: 4px 0 40px;
+    .pager a { max-width: 100%; }
+  }
+}
