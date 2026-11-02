@@ -6,12 +6,13 @@ import { Facts } from "@/components/Facts";
 import { RouteLog } from "@/components/RouteLog";
 import { POSTS } from "@/content/blog";
 import { DAYS, SPEND } from "@/content/japan-2023";
+import { pageMeta } from "@/lib/meta";
 import "./post.css";
 
 // The post's tag, dates, title and summary are the blog front page's card, so the two can't drift apart.
 const post = POSTS[0];
 
-export const metadata: Metadata = { title: post.title };
+export const metadata: Metadata = pageMeta(post.title, post.sum);
 
 // The post's own headline numbers, label first.
 const FACTS: [string, string][] = [["days", "15"], ["total spent", "~$2,750"], ["avg. spent per day", "~$68"], ["konbinis visited", "31"]];

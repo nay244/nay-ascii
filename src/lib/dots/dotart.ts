@@ -86,7 +86,7 @@ class Drawing implements Art {
     if (this.destroyed) return;
     const w = this.canvas.clientWidth, h = this.canvas.clientHeight;
     if (!w || !h) return;
-    const dpr = devicePixelRatio || 1;
+    const dpr = Math.min(2, devicePixelRatio || 1);
     this.canvas.width = Math.round(w * dpr); this.canvas.height = Math.round(h * dpr);
     this.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     this.w = w; this.h = h;

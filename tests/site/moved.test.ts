@@ -2,9 +2,8 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import test from "node:test";
+import { MOVED } from "../../src/content/moved.ts";
 import { hrefs, page, visibleText } from "./helpers.ts";
-
-const MOVED = { "about-me": "/", "index-maps": "/", azure: "/blog/az900/", wgu: "/blog/wgu/", "language-learning": "/blog/japanese/", "knowledge-base": "/blog/data/" };
 
 test("old URLs redirect", () => {
   for (const [from, to] of Object.entries(MOVED)) {

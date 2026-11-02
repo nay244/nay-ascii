@@ -1,4 +1,5 @@
 :root {
+  color-scheme: dark;
   --pond: #1a1917; --hero: #e6e9f2; --link: rgba(230, 233, 242, 0.62); --text: rgba(230, 233, 242, 0.8); --soft: rgba(230, 233, 242, 0.62); --faint: rgba(230, 233, 242, 0.52);
   --rule: rgba(230, 233, 242, 0.09); --rule-dot: rgba(230, 233, 242, 0.24); --card: rgba(230, 233, 242, 0.025); --card-line: rgba(230, 233, 242, 0.09); --card-hover: rgba(143, 183, 255, 0.42);
   --focus: #8fb7ff; --work: #8fb7ff; --personal: #ff8a66; --todo: #ff8a66;
@@ -6,6 +7,7 @@
   --bar: #5f8de0; --stop: #ff6a3d;
 }
 :root[data-theme="light"] {
+  color-scheme: light;
   --pond: #eef2f4; --hero: #1f2933; --link: rgba(31, 41, 51, 0.62); --text: rgba(31, 41, 51, 0.84); --soft: rgba(31, 41, 51, 0.72); --faint: rgba(31, 41, 51, 0.62);
   --rule: rgba(31, 41, 51, 0.1); --rule-dot: rgba(31, 41, 51, 0.28); --card: rgba(255, 255, 255, 0.5); --card-line: rgba(31, 41, 51, 0.1); --card-hover: rgba(61, 111, 182, 0.45);
   --focus: #3d6fb6; --work: #3d6fb6; --personal: #c8481f; --todo: #c8481f;

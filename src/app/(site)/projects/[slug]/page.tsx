@@ -5,6 +5,7 @@ import { Art } from "@/components/Art";
 import { Facts } from "@/components/Facts";
 import { PROJECT_BODIES } from "@/content/projects/bodies";
 import { getProject, PROJECTS } from "@/content/projects";
+import { pageMeta } from "@/lib/meta";
 import "./project.css";
 
 export const dynamicParams = false;
@@ -15,7 +16,8 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps<"/projects/[slug]">): Promise<Metadata> {
   const { slug } = await params;
-  return { title: getProject(slug)?.title };
+  const p = getProject(slug);
+  return p ? pageMeta(p.title, p.sum) : {};
 }
 
 export default async function Project({ params }: PageProps<"/projects/[slug]">) {

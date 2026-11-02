@@ -5,6 +5,7 @@ import { Contents } from "@/components/Contents";
 import { Trail } from "@/components/Trail";
 import { SERIES } from "@/content/blog";
 import type { Series } from "@/content/blog";
+import { pageMeta } from "@/lib/meta";
 import { getNote, hasContents, splitTitle } from "@/lib/notes";
 import "./note.css";
 
@@ -16,8 +17,9 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps<"/blog/[series]/[note]">): Promise<Metadata> {
   const { series, note } = await params;
-  const entry = SERIES.find((s) => s.id === series)?.notes.find((n) => n.slug === note);
-  return { title: entry && splitTitle(entry.title).name };
+  const s = SERIES.find((x) => x.id === series);
+  const entry = s?.notes.find((n) => n.slug === note);
+  return s && entry ? pageMeta(splitTitle(entry.title).name, s.sum) : {};
 }
 
 const noteHref = (s: Series, i: number) => `/blog/${s.id}/${s.notes[i].slug}`;

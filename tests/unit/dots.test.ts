@@ -174,6 +174,15 @@ test("a drawing adds no elements to the page and redraws in the other palette", 
   assert.deepEqual([...light].filter((c) => dark.has(c)), [], "no colour is shared between the two palettes");
 });
 
+test("a drawing caps the device pixel ratio at 2", () => {
+  installFakeDom();
+  (globalThis as { devicePixelRatio: number }).devicePixelRatio = 3;
+  const canvas = fakeCanvas(300, 234);
+  track(mountArt(canvas, "japan-route", fakeStage(300, 234), "dark"));
+  assert.equal(canvas.width, 600);
+  assert.equal(canvas.height, 468);
+});
+
 test("the Japan route is the one shape left", () => assert.deepEqual(Object.keys(SHAPES), ["japan-route"]));
 
 test("japan-route labels name their stop", () => {

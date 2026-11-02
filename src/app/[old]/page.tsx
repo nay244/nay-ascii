@@ -1,16 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-
-// Addresses from the old site, and where each one lives now. A static export can't redirect, so each gets a page
-// that sends the browser on with a meta refresh and, for anyone whose browser ignores it, a link.
-export const MOVED: Record<string, string> = {
-  "about-me": "/",
-  "index-maps": "/",
-  azure: "/blog/az900/",
-  wgu: "/blog/wgu/",
-  "language-learning": "/blog/japanese/",
-  "knowledge-base": "/blog/data/",
-};
+import { MOVED } from "@/content/moved";
 
 export const dynamicParams = false;
 
@@ -21,6 +11,8 @@ export function generateStaticParams() {
 // A moved page is not a page to find in a search.
 export const metadata: Metadata = { title: "Moved", robots: { index: false } };
 
+// A static export can't redirect, so each old address gets a page that sends the browser on with a meta refresh
+// and, for anyone whose browser ignores it, a link.
 export default async function Moved({ params }: PageProps<"/[old]">) {
   const { old } = await params;
   const to = MOVED[old];

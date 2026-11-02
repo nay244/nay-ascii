@@ -5,6 +5,7 @@ import { Fragment } from "react";
 import { Art } from "@/components/Art";
 import { SERIES } from "@/content/blog";
 import type { NoteEntry, Series as SeriesData } from "@/content/blog";
+import { pageMeta } from "@/lib/meta";
 import { splitTitle } from "@/lib/notes";
 import "./series.css";
 
@@ -16,7 +17,8 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps<"/blog/[series]">): Promise<Metadata> {
   const { series } = await params;
-  return { title: SERIES.find((s) => s.id === series)?.title };
+  const s = SERIES.find((x) => x.id === series);
+  return s ? pageMeta(s.title, s.sum) : {};
 }
 
 const pad = (i: number) => String(i + 1).padStart(2, "0");
@@ -28,7 +30,7 @@ function TitleRows({ series, notes, from }: { series: SeriesData; notes: NoteEnt
     <ul className="titles">
       {notes.map((n, i) => (
         <li key={n.slug}>
-          <Link href={noteHref(series, n)}>
+          <Link href={noteHref(series, n)} prefetch={false}>
             <span className="num">{pad(from + i)}</span>
             <span>{n.title}</span>
           </Link>

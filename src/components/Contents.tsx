@@ -10,9 +10,21 @@ const REACHED = 120;
 // The side list marks the section being read. `text` is HTML text, such as "Cost &amp; Governance".
 export function Contents({ toc }: { toc: TocEntry[] }) {
   // The index of the last heading reached; the first, before any is.
+  // Reading the headings' positions is the costly part, so a burst of scroll events asks for one check per frame.
   const subscribe = useCallback((onChange: () => void) => {
-    addEventListener("scroll", onChange, { passive: true });
-    return () => removeEventListener("scroll", onChange);
+    let frame = 0;
+    const onScroll = () => {
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        onChange();
+      });
+    };
+    addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(frame);
+    };
   }, []);
   const reading = useCallback(() => {
     let cur = 0;

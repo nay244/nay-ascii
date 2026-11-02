@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "engines": { "node": ">=26" },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
     "lint": "eslint",
     "test": "node --test \"tests/unit/**/*.test.ts\"",
     "test:site": "node --test \"tests/site/**/*.test.ts\"",

@@ -28,6 +28,7 @@ export function Trail({ notes, current, whereText }: {
           <Link
             key={n.href}
             href={n.href}
+            prefetch={false}
             className={n.first ? "first" : undefined}
             title={n.title}
             aria-label={n.title}

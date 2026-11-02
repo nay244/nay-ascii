@@ -87,8 +87,8 @@ test("no private strings in tracked files or git history", { skip: process.env.C
     const line = leak(f, readFileSync(f, "utf8"), patterns);
     assert.ok(line === 0, `${f} has the term on line ${line}`);
   }
-  // Every commit's message and patch, on every branch.
-  const history = spawnSync("git", ["log", "--all", "-p", "--format=%B"], { encoding: "utf8", maxBuffer: 1024 ** 3 });
+  // Every commit's message, author and committer, and patch, on every branch.
+  const history = spawnSync("git", ["log", "--all", "-p", "--format=%B%n%an %ae %cn %ce"], { encoding: "utf8", maxBuffer: 1024 ** 3 });
   assert.equal(history.status, 0, "git log failed");
   const line = leak("git history", history.stdout, patterns);
   assert.ok(line === 0, `git history has the term on line ${line}`);
