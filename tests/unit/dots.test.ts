@@ -21,6 +21,37 @@ test("importing the engines touches no browser API", async () => {
   for (const name of ["pond", "dotart", "shapes"]) await import(`../../src/lib/dots/${name}.ts?again`);
 });
 
+// Each lotus's distance from its own side, in pad radii, in the order they're laid out.
+const LOTUS_INSETS = [0.629, 0.734, 1.429, 0.623];
+const fromSide = (pond: Pond, w: number) => pond.pads.map((p, i) => (i < 2 ? p.hx : w - p.hx) - LOTUS_INSETS[i] * p.R);
+
+test("on a desktop each lotus sits 100px further in from its side", () => {
+  installFakeDom();
+  const pond = track(createPond(fakeStage(1440, 900), "dark", 1));
+  assert.equal(pond.pads.length, 4);
+  for (const moved of fromSide(pond, 1440)) assert.ok(Math.abs(moved - 100) < 0.01, String(moved));
+});
+
+test("on a phone the lotus stay at the sides", () => {
+  installFakeDom();
+  const pond = track(createPond(fakeStage(1023, 768), "dark", 1));
+  assert.ok(pond.pads.length > 0);
+  for (const moved of fromSide(pond, 1023)) assert.ok(Math.abs(moved) < 0.01, String(moved));
+});
+
+test("a lotus that moving in would put under the intro text stays at its side, and the pond keeps all four", () => {
+  installFakeDom();
+  const stage = fakeStage(1024, 768);
+  Object.assign((stage as unknown as { hero: object }).hero, {
+    getBoundingClientRect: () => ({ left: 205, top: 418, right: 700, bottom: 568, width: 495, height: 150 }),
+  });
+  const pond = track(createPond(stage, "dark", 1));
+  assert.equal(pond.pads.length, 4);
+  const moved = fromSide(pond, 1024);
+  assert.ok(Math.abs(moved[0] - 100) < 0.01, String(moved[0]));
+  assert.ok(Math.abs(moved[1]) < 0.01, String(moved[1]));
+});
+
 test("destroying the last pond stops the loop and cleans up", () => {
   const dom = installFakeDom(), stage = fakeStage(1280, 800);
   const pond = track(createPond(stage, "dark", 1));

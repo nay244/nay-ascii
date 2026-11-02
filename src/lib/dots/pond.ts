@@ -68,6 +68,8 @@ const FOOD_R = 3.4, FOOD_LIFE = 14;
 // How far a pond's height may drift from its last layout before the koi and lotus are placed again.
 // A phone's address bar showing and hiding changes the height by less than this and shouldn't reshuffle the pond.
 const RELAYOUT_HEIGHT = 120;
+// How far the lotus move in from their sides, and the pond width that starts at: the same as the desktop home text in home.css.
+const LOTUS_MOVE_IN = 100, LOTUS_MOVE_IN_FROM = 1024;
 
 type Lotus = {
   side: "left" | "right"; inset: number; y: number; r: number; notch: number; seed: number;
@@ -384,14 +386,17 @@ class PondEngine implements Pond {
   layout() {
     const rand = rng(this.seed), w = this.w, h = this.h;
     this.scale = clamp(w / 900, 0.55, 1);
-    // The pinned lotus. A pad that would sit under the intro text moves up just clear of it,
-    // but never into the header band. If that lands it on another pad, the pond goes without it.
+    // The pinned lotus. On a wide pond each moves in from its side, unless that would put it under the intro text.
+    // A pad still under the text moves up just clear of it, but never into the header band.
+    // If that lands it on another pad, the pond goes without it.
     this.pads = [];
     for (const l of LOTUS_LAYOUT) {
-      const R = l.r * Math.min(h, w * 1.1), x = l.side === "left" ? l.inset * R : w - l.inset * R;
-      let y = l.y * h;
-      const b = this.heroBox, mm = R + 12;
-      if (x > b.l - mm && x < b.r + mm && y > b.t - mm && y < b.b + mm) y = b.t - R - 13;
+      const R = l.r * Math.min(h, w * 1.1), b = this.heroBox, mm = R + 12;
+      const at = (inset: number) => (l.side === "left" ? inset : w - inset);
+      const underText = (x: number, y: number) => x > b.l - mm && x < b.r + mm && y > b.t - mm && y < b.b + mm;
+      let x = at(l.inset * R + (w >= LOTUS_MOVE_IN_FROM ? LOTUS_MOVE_IN : 0)), y = l.y * h;
+      if (underText(x, y)) x = at(l.inset * R);
+      if (underText(x, y)) y = b.t - R - 13;
       y = Math.max(y, h * HEADER_BAND + R);
       if (!this.pads.some((p) => Math.hypot(x - p.x, y - p.y) < R + p.R)) this.pads.push(makePad(x, y, R, l));
     }
