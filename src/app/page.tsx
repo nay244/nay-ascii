@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className="page-home">
       <PondStage>
-        <Header showName={false} />
+        <Header />
         <main className="hero">
           <h1>Nay Naing</h1>
           <p>Security Engineer / Data Analyst, passionate about building the future for the people.</p>

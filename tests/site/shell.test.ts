@@ -10,9 +10,14 @@ test("home has the theme script and no scaffold", () => {
   assert.match(html, /<title>Nay Naing<\/title>/);
 });
 
-test("inner pages have the name link and mark their section", () => {
-  const html = page("/projects");
-  assert.match(html, /class="brand"[^>]*href="\/"|href="\/"[^>]*class="brand"/);
-  assert.match(html, /aria-current="page"[^>]*>projects|href="\/projects\/"[^>]*aria-current="page"/);
-  assert.match(html, /<title>Projects · Nay Naing<\/title>/);
+test("every page has a home tab and no name link, and marks its section", () => {
+  const inner = page("/projects"), home = page("/");
+  for (const html of [inner, home]) {
+    assert.match(html, /<a[^>]*href="\/"[^>]*>home<\/a>/);
+    assert.doesNotMatch(html, /class="brand"/);
+  }
+  assert.match(home, /<a(?=[^>]*aria-current="page")(?=[^>]*href="\/")[^>]*>home<\/a>/);
+  assert.match(inner, /<a(?=[^>]*aria-current="page")(?=[^>]*href="\/projects\/")[^>]*>projects<\/a>/);
+  assert.equal([...inner.matchAll(/aria-current/g)].length, 1);
+  assert.match(inner, /<title>Projects · Nay Naing<\/title>/);
 });

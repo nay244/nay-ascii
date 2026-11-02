@@ -1,10 +1,9 @@
-/* The header, the same on every page. Only home leaves the name out, and then the links sit at the right. */
+/* The header, the same on every page. */
 .hdr { display: flex; align-items: center; justify-content: center; gap: 22px; height: 72px; padding: 0 7%; font-size: 17px; }
 .hdr a, .hdr button { color: var(--link); text-decoration: none; white-space: nowrap; transition: color 150ms ease; }
 .hdr a:hover, .hdr button:hover { color: var(--hero); }
 a:focus-visible, .hdr button:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
-.hdr .brand, .hdr a[aria-current="page"] { color: var(--hero); }
-.hdr a[aria-current="page"] { padding-bottom: 5px; background: radial-gradient(circle, currentColor 0.9px, transparent 1.3px) left bottom / 4px 4px repeat-x; }
+.hdr a[aria-current="page"] { color: var(--hero); padding-bottom: 5px; background: radial-gradient(circle, currentColor 0.9px, transparent 1.3px) left bottom / 4px 4px repeat-x; }
 .hdr nav { display: flex; align-items: center; gap: 22px; }
 .toggle { display: inline-grid; place-items: center; width: 28px; height: 28px; padding: 0; border: 0; background: none; cursor: pointer; }
 .toggle svg { width: 18px; height: 18px; fill: currentColor; }
