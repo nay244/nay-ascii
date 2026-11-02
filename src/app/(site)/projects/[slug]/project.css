@@ -21,7 +21,7 @@
   .prose h3 { font-size: 14px; font-weight: 500; color: var(--hero); margin: 40px 0 10px; }
   .prose p { color: var(--text); max-width: 72ch; margin: 0 0 12px; }
   .prose strong { color: var(--hero); font-weight: 500; }
-  .prose code { font: inherit; font-size: 0.95em; color: var(--hero); background: var(--card); border: 1px solid var(--card-line); border-radius: 4px; padding: 0 4px; overflow-wrap: anywhere; }
+  .prose code { font-family: Menlo, "SF Mono", Monaco, Consolas, monospace; font-size: 0.95em; color: var(--hero); background: var(--card); border: 1px solid var(--card-line); border-radius: 4px; padding: 0 4px; overflow-wrap: anywhere; }
   .note { font-size: 12px; }
 
   /* Before/after diagrams: each piece sits in a panel and takes the piece's own shape. */

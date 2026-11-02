@@ -62,10 +62,17 @@ test("every root-relative link and image carries the base path", { skip: BASE_PA
   }
 });
 test("the library's license ships, and no unpicked art does", () => {
-  for (const f of ["LICENSE.txt", "NOTICE.txt"]) assert.ok(existsSync(`out/third-party/ascii-magic/${f}`), f);
+  for (const f of ["ascii-magic/LICENSE.txt", "ascii-magic/NOTICE.txt", "geist/LICENSE.txt"]) assert.ok(existsSync(`out/third-party/${f}`), f);
   const js = readdirSync("out/_next", { recursive: true }).map(String).filter((f) => f.endsWith(".js")).map((f) => readFileSync(join("out/_next", f), "utf8")).join("");
   for (const s of ["sql-query-runner", "packet-sniffer", "ocean-sunset", "starry-ridge", "project-azure-dome", "blog-data-sheet"]) assert.ok(!js.includes(s), s);
   assert.ok(!js.includes("ascii-magic.com"));
+});
+test("every page gets Geist Serif, served from the site itself", () => {
+  const css = readdirSync("out/_next", { recursive: true }).map(String).filter((f) => f.endsWith(".css")).map((f) => readFileSync(join("out/_next", f), "utf8")).join("");
+  assert.match(css, /--font-geist-serif:/);
+  assert.match(css, /font:13px\/1\.7 var\(--font-geist-serif\)/);
+  assert.match(css, /@font-face\{[^}]*src:url\([^)]*\.woff2/);
+  for (const f of htmlFiles()) assert.doesNotMatch(readFileSync(join("out", f), "utf8"), /fonts\.(googleapis|gstatic)\.com/, f);
 });
 test("no IPv4 addresses or phone numbers anywhere", () => {
   // Raw bytes of every text file, so hrefs, scripts and page data are covered, and what a reader sees in HTML.

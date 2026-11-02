@@ -15,4 +15,4 @@
   --bar: #3d6fb6; --stop: #d24a26;
 }
 * { box-sizing: border-box; }
-body { margin: 0; background: var(--pond); color: var(--hero); font: 13px/1.7 Menlo, "SF Mono", Monaco, Consolas, monospace; }
+body { margin: 0; background: var(--pond); color: var(--hero); font: 13px/1.7 var(--font-geist-serif), serif; }

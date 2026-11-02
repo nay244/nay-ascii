@@ -1,6 +1,5 @@
 /* The header, the same on every page. Only home leaves the name out, and then the links sit at the right. */
-.hdr { display: flex; align-items: center; justify-content: space-between; height: 72px; padding: 0 7%; }
-.hdr-end { justify-content: flex-end; }
+.hdr { display: flex; align-items: center; justify-content: center; gap: 22px; height: 72px; padding: 0 7%; }
 .hdr a, .hdr button { color: var(--link); text-decoration: none; white-space: nowrap; transition: color 150ms ease; }
 .hdr a:hover, .hdr button:hover { color: var(--hero); }
 a:focus-visible, .hdr button:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
@@ -57,7 +56,7 @@ a:focus-visible, .hdr button:focus-visible { outline: 2px solid var(--focus); ou
 .main { width: min(832px, 86%); margin-inline: auto; }
 
 @media (max-width: 640px) {
-  .hdr { padding: 0 16px; font-size: 12px; height: 60px; }
+  .hdr { padding: 0 16px; font-size: 12px; height: 60px; gap: 12px; }
   .hdr nav { gap: 12px; }
   .main { width: auto; padding-inline: 16px; }
 }

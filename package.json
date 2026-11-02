@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=26" },
+  "engines": {
+    "node": ">=26"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -13,6 +15,7 @@
     "verify": "next build && eslint && npm test && npm run test:site"
   },
   "dependencies": {
+    "geist": "1.9.0",
     "marked": "^18.1.2",
     "next": "16.4.3",
     "react": "19.3.0",

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GeistSerif } from "geist/font/serif/variable";
 import { THEME_SCRIPT } from "@/lib/theme";
 import "@/styles/tokens.css";
 import "@/styles/shared.css";
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" data-theme="dark" suppressHydrationWarning>
+    <html lang="en" data-theme="dark" className={GeistSerif.variable} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
       </head>

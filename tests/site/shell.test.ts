@@ -6,7 +6,7 @@ test("home has the theme script and no scaffold", () => {
   const html = page("/");
   assert.match(html, /<html[^>]*data-theme=/);
   assert.match(html, /prefers-color-scheme/);
-  assert.doesNotMatch(html, /Create Next App|Geist|geist|tailwind/);
+  assert.doesNotMatch(html, /Create Next App|tailwind/);
   assert.match(html, /<title>Nay Naing<\/title>/);
 });
 

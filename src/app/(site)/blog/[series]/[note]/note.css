@@ -60,7 +60,7 @@ html:has(.page-note) { scroll-padding-top: 16px; }
   .prose li > p { margin: 0; }
   /* A screenshot under a step was inline in the mockup, so it sits tight beneath the step's text. */
   .prose li > figure { margin: 0; }
-  .prose code { font: inherit; font-size: 12px; background: var(--card); border: 1px solid var(--card-line); border-radius: 4px; padding: 0 4px; }
+  .prose code { font-family: Menlo, "SF Mono", Monaco, Consolas, monospace; font-size: 12px; background: var(--card); border: 1px solid var(--card-line); border-radius: 4px; padding: 0 4px; }
   .prose hr { border: 0; height: 4px; margin: 24px 0; background: radial-gradient(circle, var(--rule-dot) 0.9px, transparent 1.2px) left center / 4px 4px repeat-x; }
   .prose blockquote { margin: 0 0 14px; padding: 2px 0 2px 16px; color: var(--soft); background: radial-gradient(circle, var(--rule-dot) 1px, transparent 1.4px) left top / 4px 5px repeat-y; }
   .prose blockquote p:last-child { margin-bottom: 0; }
