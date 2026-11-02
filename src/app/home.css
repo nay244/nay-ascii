@@ -22,6 +22,10 @@
   @media (max-height: 720px) {
     .hero { bottom: 48px; }
   }
+  /* On a large monitor the text grows to 18px, and 3vh would spread its lines too far apart. */
+  @media (min-width: 1800px) {
+    .hero { font-size: clamp(15px, 7.9px + 0.395vw, 18px); line-height: 1.6; }
+  }
   @media (max-width: 1023px) {
     .hero { left: 24px; right: 24px; bottom: 48px; width: auto; font-size: 14px; line-height: 1.6; }
   }
