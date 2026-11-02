@@ -8,7 +8,7 @@ test("home says what Nay wrote, and nothing removed", () => {
   assert.match(html, /<h1[^>]*>Nay Naing<\/h1>/);
   assert.ok(text.includes("Security Engineer / Data Analyst, passionate about building the future for the people."));
   assert.ok(text.includes("N.R. Walker"));
-  assert.ok(hrefs(html).includes("https://www.goodreads.com/en/book/show/31997446"));
+  assert.ok(!hrefs(html).some((href) => href.includes("goodreads")));
   assert.ok(hrefs(html).includes("https://www.linkedin.com/in/naaay-naing/"));
   assert.ok(hrefs(html).includes("https://github.com/nay244/"));
   assert.doesNotMatch(html, /mailto:|feed the koi|class="brand"|class="mock"/);

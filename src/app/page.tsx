@@ -12,7 +12,7 @@ export default function Home() {
           <p>Security Engineer / Data Analyst, passionate about building the future for the people.</p>
           <blockquote className="quote">
             <p>“Whenever you find yourself doubting how far you can go, <br />just remember how far you have come. <br />Remember everything you have faced, <br />all the battles you have won, and all the fears you have overcome.”</p>
-            <footer><a href="https://www.goodreads.com/en/book/show/31997446">N.R. Walker ↗</a> (2016)</footer>
+            <footer>N.R. Walker (2016)</footer>
           </blockquote>
           <div className="links"><a href="https://www.linkedin.com/in/naaay-naing/">linkedin ↗</a><a href="https://github.com/nay244/">github ↗</a></div>
         </main>
