@@ -1,0 +1,14 @@
+// Served by Cloudflare as static files, with no Worker script. `npm run deploy` runs the checks and publishes out/.
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "naaay-dev",
+  "compatibility_date": "2026-11-02",
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page"
+  },
+  "routes": [{ "pattern": "naaay.dev", "custom_domain": true }],
+  // The domain is the only address, so there's no second copy on workers.dev.
+  "workers_dev": false,
+  "preview_urls": false
+}
