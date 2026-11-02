@@ -48,11 +48,22 @@ test("diagrams size their text without JavaScript, and art stays hidden from scr
   }
 });
 
-test("Hyper-V says only what the résumé says", () => {
+test("Hyper-V keeps what happened apart from the typical plan, and says which is which", () => {
   const text = visibleText(page("/projects/hyperv"));
   for (const q of ["How many VMs", "What was tested", "How did the cutover", "Also missing", "résumé"]) assert.ok(!text.includes(q), q);
   assert.ok(text.includes("Test") && text.includes("phase 2"));
   assert.doesNotMatch(page("/projects/hyperv"), /class="todo"/);
+  const [record, plan] = text.split("A typical plan for 200+ production servers");
+  assert.ok(plan, "no plan heading");
+  assert.ok(record.includes("Zero production downtime"));
+  assert.ok(plan.includes("It isn’t a record of this project"));
+  for (const heading of ["Plan: know what’s moving", "Test: prove it before production", "Execute: the same runbook every time", "Rollback", "Who does what"]) assert.ok(plan.includes(heading), heading);
+});
+
+test("the Hyper-V waves add up to over 200 production servers", () => {
+  const sizes = [...visibleText(page("/projects/hyperv")).matchAll(/~(\d+) production/g)].map((m) => Number(m[1]));
+  assert.equal(sizes.length, 4);
+  assert.ok(sizes.reduce((a, b) => a + b, 0) > 200);
 });
 
 test("the pager wraps", () => {
