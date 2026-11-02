@@ -8,7 +8,7 @@
     "dev": "next dev",
     "build": "next build",
     "lint": "eslint",
-    "test": "node --test \"tests/unit/**/*.test.ts\"",
+    "test": "NEXT_PUBLIC_BASE_PATH= node --test \"tests/unit/**/*.test.ts\"",
     "test:site": "node --test \"tests/site/**/*.test.ts\"",
     "verify": "next build && eslint && npm test && npm run test:site"
   },

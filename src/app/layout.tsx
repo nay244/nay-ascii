@@ -6,7 +6,7 @@ import "@/styles/shared.css";
 const DESCRIPTION = "Security Engineer / Data Analyst, passionate about building the future for the people.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://naynaing.xyz"),
+  metadataBase: new URL("https://nay244.github.io/nay-ascii/"),
   title: { default: "Nay Naing", template: "%s · Nay Naing" },
   description: DESCRIPTION,
   openGraph: { title: "Nay Naing", description: DESCRIPTION, siteName: "Nay Naing", type: "website" },

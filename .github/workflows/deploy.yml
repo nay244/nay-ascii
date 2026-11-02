@@ -1,6 +1,6 @@
 name: Deploy to GitHub Pages
 
-# Manual until launch.
+# Manual, because the private-terms scan can only run locally: run `npm run verify` first.
 on: workflow_dispatch
 
 # An explicit block drops every permission it doesn't name, and checkout reads the repo.
@@ -12,6 +12,9 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    # Served from nay244.github.io/nay-ascii/. With a domain, remove this and change metadataBase in src/app/layout.tsx.
+    env:
+      NEXT_PUBLIC_BASE_PATH: /nay-ascii
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

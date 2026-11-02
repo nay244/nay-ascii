@@ -4,6 +4,7 @@ import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
 import test from "node:test";
 import { SERIES } from "../../src/content/blog.ts";
+import { BASE_PATH } from "../../src/lib/base.ts";
 import { hrefs, page, visibleText } from "./helpers.ts";
 
 const htmlFiles = () => readdirSync("out", { recursive: true }).filter((f) => f.endsWith(".html")).map(String);
@@ -48,6 +49,15 @@ test("every internal link, image and anchor resolves", () => {
       assert.ok(existsSync(join("out", file)), `${f}: ${ref}`);
       // Japanese heading ids arrive percent-encoded here and sit raw in the target's HTML.
       if (frag) assert.ok(readFileSync(join("out", file), "utf8").includes(`id="${decodeURIComponent(frag)}"`), `${f}: ${ref}`);
+    }
+  }
+});
+test("every root-relative link and image carries the base path", { skip: BASE_PATH ? false : "built for the root of a domain" }, () => {
+  for (const f of htmlFiles()) {
+    const html = readFileSync(join("out", f), "utf8");
+    for (const m of html.matchAll(/\s(?:href|src)="(\/(?!\/)[^"]*)"|url=(\/[^"]*)"/g)) {
+      const ref = m[1] ?? m[2];
+      assert.ok(ref === BASE_PATH || ref.startsWith(`${BASE_PATH}/`), `${f}: ${ref}`);
     }
   }
 });

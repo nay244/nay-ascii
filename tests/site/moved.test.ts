@@ -3,12 +3,13 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import test from "node:test";
 import { MOVED } from "../../src/content/moved.ts";
+import { BASE_PATH } from "../../src/lib/base.ts";
 import { hrefs, page, visibleText } from "./helpers.ts";
 
 test("old URLs redirect", () => {
   for (const [from, to] of Object.entries(MOVED)) {
     const html = page(`/${from}`);
-    assert.match(html, new RegExp(`http-equiv="refresh"[^>]*url=${to}"`), from);
+    assert.match(html, new RegExp(`http-equiv="refresh"[^>]*url=${BASE_PATH}${to}"`), from);
     assert.ok(hrefs(html).includes(to), from);
     assert.match(html, /noindex/);
   }

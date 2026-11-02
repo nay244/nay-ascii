@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { Marked, Renderer, type Tokens } from "marked";
+import { BASE_PATH } from "./base.ts";
 
 // `text` is the heading as rendered, minus its tags, so it is still HTML text: "Cost &amp; Governance".
 export type TocEntry = { lvl: number; id: string; text: string };
@@ -53,11 +54,16 @@ function markdown(toc: TocEntry[]): Marked {
   return md;
 }
 
+// Note links and images are plain HTML, so `Link` can't add the base path to them.
+export function prefixPaths(html: string, base: string = BASE_PATH): string {
+  return html.replace(/\b(href|src)="\/(?!\/)/g, `$1="${base}/`);
+}
+
 // A note's Markdown as HTML, with the headings down to level 3 for its contents list and its word count.
 // Raw HTML passes through, because the notes use ruby, details and the like.
 export function renderNote(md: string): Note {
   const toc: TocEntry[] = [];
-  const html = markdown(toc).parse(md, { async: false });
+  const html = prefixPaths(markdown(toc).parse(md, { async: false }));
   return { html, toc, words: md.match(/\S+/g)?.length ?? 0 };
 }
 

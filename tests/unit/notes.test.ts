@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { existsSync, readdirSync } from "node:fs";
 import test from "node:test";
 import { POSTS, SERIES } from "../../src/content/blog.ts";
-import { getNote, hasContents, renderNote, splitTitle } from "../../src/lib/notes.ts";
+import { getNote, hasContents, prefixPaths, renderNote, splitTitle } from "../../src/lib/notes.ts";
 import { hasMockups, mockData } from "../site/helpers.ts";
 
 test("every index entry has a file, and every file an entry", () => {
@@ -73,4 +73,13 @@ test("the Japan 2023 post links to its own page", () => {
   assert.equal(POSTS[0].href, "/blog/japan-2023/");
   assert.equal(POSTS[0].piece, "fuji-dawn-lake");
   assert.ok(!("art" in POSTS[0]));
+});
+
+test("prefixPaths prefixes root-relative links and images, and nothing else", () => {
+  const html = '<a href="/blog/x/">a</a> <img src="/static/y.png"> <a href="https://a.b/">b</a> <a href="//a.b/">c</a> <a href="#z">d</a> <code>href=&quot;/q&quot;</code>';
+  assert.equal(
+    prefixPaths(html, "/base"),
+    '<a href="/base/blog/x/">a</a> <img src="/base/static/y.png"> <a href="https://a.b/">b</a> <a href="//a.b/">c</a> <a href="#z">d</a> <code>href=&quot;/q&quot;</code>',
+  );
+  assert.equal(prefixPaths(html, ""), html);
 });

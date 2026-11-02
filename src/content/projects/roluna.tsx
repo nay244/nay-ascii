@@ -1,5 +1,6 @@
 import { Flow } from "@/components/Flow";
 import { firstFrame } from "@/lib/art/first-frame";
+import { BASE_PATH } from "@/lib/base";
 import { Chips, Decisions } from "./parts";
 
 // File, caption, alt text.
@@ -46,7 +47,7 @@ export function RolunaBody() {
 
       <h3>The app</h3>
       <div className="icon-row">
-        <img src="/static/roluna/roluna-icon.png" alt="Roluna app icon" width={48} height={48} />
+        <img src={`${BASE_PATH}/static/roluna/roluna-icon.png`} alt="Roluna app icon" width={48} height={48} />
         <p>
           Production iOS app icon: a warm clay <strong>r</strong> on the brand gradient.
         </p>
@@ -55,7 +56,7 @@ export function RolunaBody() {
         {SCREENS.map(([file, name, alt]) => (
           <li key={file}>
             <figure>
-              <img src={`/static/roluna/roluna-${file}.png`} alt={`Roluna: ${alt}`} width={804} height={1748} loading="lazy" />
+              <img src={`${BASE_PATH}/static/roluna/roluna-${file}.png`} alt={`Roluna: ${alt}`} width={804} height={1748} loading="lazy" />
               <figcaption>{name}</figcaption>
             </figure>
           </li>

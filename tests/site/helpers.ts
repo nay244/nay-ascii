@@ -1,6 +1,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import vm from "node:vm";
+import { BASE_PATH } from "../../src/lib/base.ts";
 
 const ROOT = join(import.meta.dirname, "..", "..");
 const MOCK = join(ROOT, ".superpowers", "brainstorm", "mockups");
@@ -11,7 +12,9 @@ export const hasMockups = existsSync(MOCK);
 // The built HTML of a route: "/" is out/index.html, "/projects" is out/projects/index.html.
 export function page(route: string): string {
   const folder = route.replace(/^\/+|\/+$/g, "");
-  return readFileSync(join(ROOT, "out", folder, "index.html"), "utf8");
+  const html = readFileSync(join(ROOT, "out", folder, "index.html"), "utf8");
+  // Without the base path in its links, so a test reads the same at any path. output.test.ts checks the path itself.
+  return BASE_PATH ? html.replaceAll(`href="${BASE_PATH}/`, 'href="/').replaceAll(`src="${BASE_PATH}/`, 'src="/') : html;
 }
 
 const ENTITIES: Record<string, string> = { amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " " };
@@ -36,9 +39,12 @@ export function visibleText(html: string): string {
     .trim();
 }
 
-// Every href and src, with entities decoded.
+// Every href and src, with entities decoded and without the base path, so a ref reads the same as its place in out/.
+const withoutBase = (ref: string) =>
+  BASE_PATH && (ref === BASE_PATH || ref.startsWith(`${BASE_PATH}/`)) ? ref.slice(BASE_PATH.length) || "/" : ref;
+
 export function hrefs(html: string): string[] {
-  return [...html.matchAll(/\s(?:href|src)=(?:"([^"]*)"|'([^']*)')/gi)].map((m) => decode(m[1] ?? m[2]));
+  return [...html.matchAll(/\s(?:href|src)=(?:"([^"]*)"|'([^']*)')/gi)].map((m) => withoutBase(decode(m[1] ?? m[2])));
 }
 
 // Values made in the mockups' realm have that realm's Object and Array, which deepEqual treats as foreign.
