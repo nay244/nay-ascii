@@ -7,8 +7,8 @@
   /* Here the header floats over the water instead of sitting above the page. */
   .hdr { position: absolute; top: 0; left: 0; right: 0; cursor: auto; }
 
-  /* The size and place of daoho.dev's home text. All of it looks like the title. */
-  .hero { position: absolute; left: 20vw; bottom: 128px; width: min(60vw, 54rem); font-size: 15px; font-weight: 500; line-height: max(22px, 3vh); color: var(--hero); pointer-events: none; }
+  /* All of the home text looks like the title. */
+  .hero { position: absolute; left: 20vw; bottom: 200px; width: min(60vw, 54rem); font-size: 15px; font-weight: 500; line-height: max(22px, 3vh); color: var(--hero); pointer-events: none; }
   .hero h1 { font: inherit; margin: 0; }
   .hero p { margin: 0; }
   /* The quote hangs off a column of dots, like the dotted rules on the other pages. */
@@ -19,9 +19,6 @@
   .quote a, .links a { color: inherit; text-decoration: none; pointer-events: auto; cursor: pointer; }
   .quote a:hover, .links a:hover { text-decoration: underline; }
 
-  @media (max-height: 720px) {
-    .hero { bottom: 48px; }
-  }
   /* On a large monitor the text grows to 18px, and 3vh would spread its lines too far apart. */
   @media (min-width: 1800px) {
     .hero { font-size: clamp(15px, 7.9px + 0.395vw, 18px); line-height: 1.6; }
