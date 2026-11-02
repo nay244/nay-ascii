@@ -1,4 +1,4 @@
-/* project-hyperv: recreated from the gantt-chart Explainer, keeping only what the résumé says: three teams, three phases, no production downtime, deadline met. */
+/* project-hyperv: recreated from the gantt-chart Explainer: three teams, three phases, the lab, the waves, no production downtime, deadline met. */
 import { Grid, clamp } from "../vendor/ascii-magic/lib/kit.js";
 import { PALETTE, INK, SOFT, DIM, RED, GOLD, GREEN, BLUE, PINK } from "./diagram.js";
 
@@ -6,13 +6,15 @@ export const meta = {
   slug: "project-hyperv",
   name: "VMware to Hyper-V",
   category: "explainers",
-  note: "Three teams through plan, test and execute, with production staying up the whole way and the deadline met at the end.",
+  note: "Three teams through plan, test and execute, with the machines moving in waves, production staying up the whole way and the deadline met at the end.",
   tags: ["gantt", "migration", "timeline", "diagram"],
   cols: 60, wide: 96, rows: 20, fps: 20,
   palette: PALETTE,
 };
 
 const PHASES = ["plan", "test", "execute"];
+const WORK = { plan: "inventory", test: "lab", execute: "waves" };
+const WAVES = 5;
 const TEAMS = [["network", 4, BLUE], ["server", 6, GOLD], ["application", 8, PINK]];
 const X0 = 13, SWEEP = 13, LOOP = 16;
 
@@ -30,13 +32,19 @@ export default function create(cols = meta.cols) {
       const x = X0 + i * pw, on = hx >= x && hx < x + pw;
       g.text(x + ((pw - 1 - name.length) >> 1), 1, name, focus === name ? RED : on ? INK : SOFT);
       if (focus === name) g.hline(x, x + pw - 2, 2, "━", RED);
+      g.text(x + ((pw - 1 - WORK[name].length) >> 1), 3, WORK[name], DIM);
       for (const [, y, co] of TEAMS) for (let k = 0; k < pw - 1; k++) g.set(x + k, y, x + k <= hx ? "●" : "·", x + k <= hx ? co : DIM);
     });
     for (const [name, y] of TEAMS) g.text(1, y, name, SOFT);
-    // The machines only move in the last phase.
-    const moved = clamp((head - 2 / 3) * 3), span = end - X0 - 8;
+    // The machines only move in the last phase, one wave at a time, each a block with a gap after it.
+    const moved = clamp((head - 2 / 3) * 3), span = end - X0 - 8, size = (span + 2) / WAVES;
     g.text(1, 12, "VMware", SOFT);
-    for (let k = 0; k <= span; k++) g.set(X0 + k, 12, k < moved * span ? "●" : "·", k < moved * span ? GREEN : DIM);
+    for (let k = 0; k <= span; k++) {
+      const wave = Math.floor(k / size);
+      if (Math.floor((k + 1) / size) > wave && k < span) continue;
+      const lit = wave < Math.round(moved * WAVES);
+      g.set(X0 + k, 12, lit ? "●" : "·", lit ? GREEN : DIM);
+    }
     g.text(cols - 8, 12, "Hyper-V", moved >= 1 ? INK : SOFT);
     g.text(1, 16, "production", SOFT);
     g.hline(X0, end, 16, "━", GREEN);

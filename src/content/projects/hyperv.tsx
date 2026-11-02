@@ -14,11 +14,11 @@ const ROUTES = [
 // Wave, scope, size, what must be true before the next wave.
 const WAVES = [
   ["0 · Lab", "Clones covering every OS and every route", "~10 clones", "All tests pass and rollback is timed"],
-  ["1 · Non-production", "Development and test servers", "~30", "No repeat failures, and the runbook is corrected"],
+  ["1 · Non-production", "Development and test servers", "~10", "No repeat failures, and the runbook is corrected"],
   ["2 · Low risk", "Redundant services and internal tools", "~60 production", "A quiet week after the last batch"],
-  ["3 · Business apps", "Applications, one dependency group at a time", "~100 production", "Owners have signed off every group"],
+  ["3 · Business apps", "Applications, one dependency group at a time", "~95 production", "Owners have signed off every group"],
   ["4 · Critical", "Databases, identity and the most visible services", "~40 production", "A quiet two weeks after the last batch"],
-  ["5 · Exceptions", "Appliances and anything held back", "~10 production", "VMware is empty"],
+  ["5 · Exceptions", "Appliances and anything held back", "~8 production", "VMware is empty"],
 ];
 
 // What gets tested, and what passing looks like.
@@ -78,7 +78,7 @@ function Rows({ head, rows, long }: { head: string[]; rows: string[][]; long?: b
   );
 }
 
-// "How it ran" says only what the résumé says. Everything after it is a general plan, and the page says so.
+// The user gave the 213 total, the deadline and the finish date, and confirmed the plan is roughly what ran live, so the page states those and calls the other numbers approximate.
 export function HypervBody() {
   return (
     <>
@@ -89,15 +89,30 @@ export function HypervBody() {
         caption="Three teams · three phases"
         fallback={firstFrame("project-hyperv", 46)}
         steps={[
-          { stop: "plan", name: "Plan", when: "phase 1", children: <p>With the network, server and application teams.</p> },
-          { stop: "test", name: "Test", when: "phase 2" },
-          { stop: "execute", name: "Execute", when: "phase 3", children: <p>Zero production downtime, and the project deadline met.</p> },
+          {
+            stop: "plan",
+            name: "Plan",
+            when: "phase 1 · before anything moved",
+            children: <p>With the network, server and application teams: inventory every VM, map dependencies, build the Hyper-V cluster and sort servers into waves.</p>,
+          },
+          {
+            stop: "test",
+            name: "Test",
+            when: "phase 2 · wave 0, in the lab",
+            children: <p>Clones of every OS and route went through the checks below, including a timed rollback, before the go/no-go for production.</p>,
+          },
+          {
+            stop: "execute",
+            name: "Execute",
+            when: "phase 3 · waves 1 to 5",
+            children: <p>213 servers in all: non-production first, then over 200 production servers, lowest risk first. Zero production downtime, finished in May 2026, ahead of the November 14 deadline.</p>,
+          },
         ]}
       />
 
-      <h3>A typical plan for 200+ production servers</h3>
+      <h3>The plan for 213 servers</h3>
       <p>
-        This is how a move of this size is typically planned, tested and run. It isn’t a record of this project: the batch sizes, timings and thresholds are examples.
+        This is roughly how the move was planned, tested and run live. The total of 213 is exact. The batch sizes, timings and thresholds are approximate.
       </p>
       <p>
         Converting a VM means stopping it for a final sync, so avoiding production downtime is decided server by server. Services with a redundant partner move one
@@ -129,7 +144,7 @@ export function HypervBody() {
           items={[
             ["Rollback", "The VMware original stays powered off and unchanged. Before users return, rolling back means stopping the Hyper-V copy, starting the original and rerunning the smoke test. After users return, new data lives only on the copy, so going back becomes a data decision with the owner. That’s why the go/no-go comes first."],
             ["Stop rules", "A wave pauses on a major incident caused by the migration, a failed rollback, or the same smoke test failing on more than one server. The cause is fixed and added to the lab tests before the wave resumes."],
-            ["Finish", "After the last wave, backup and monitoring come off VMware, the hosts are decommissioned and the licenses end. The last wave is scheduled well before the renewal date, because that date is where the savings start."],
+            ["Finish", "After the last wave, backup and monitoring come off VMware, the hosts are decommissioned and the licenses end. The deadline was November 14, the contract renewal date, when VMware prices would have risen by over 180%. The project finished in May 2026, well ahead of it."],
           ]}
         />
       </div>

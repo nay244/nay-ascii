@@ -29,10 +29,10 @@ export const PROJECTS: ProjectMeta[] = [
   },
   {
     slug: "hyperv", piece: "project-hyperv-move", title: "VMware to Hyper-V Migration", kind: "work",
-    sum: "Migrated virtual machine infrastructure from VMware to Hyper-V with the network, server and application teams, to cut costs and modernize. Planned, tested and executed with zero production downtime, on deadline.",
-    lede: "Worked with the network, server and application teams to migrate virtual machine infrastructure from VMware to Hyper-V, as a cost-reduction and infrastructure modernization initiative. Planned, tested and executed with zero production downtime, on deadline.",
+    sum: "Migrated 213 servers from VMware to Hyper-V with the network, server and application teams, before a contract renewal that would have raised VMware prices by over 180%. Planned, tested and executed with zero production downtime, finished in May 2026.",
+    lede: "Worked with the network, server and application teams to migrate 213 servers from VMware to Hyper-V, as a cost-reduction and infrastructure modernization initiative. The deadline was November 14, the contract renewal date, when VMware prices would have risen by over 180%. Planned, tested and executed with zero production downtime, and finished in May 2026.",
     stack: ["VMware", "Hyper-V"],
-    facts: [["production downtime", "0"], ["teams", "3"], ["deadline", "met"]],
+    facts: [["servers", "213"], ["production downtime", "0"], ["finished", "May 2026"]],
   },
   {
     slug: "roluna", piece: "project-roluna-deck", title: "Roluna", kind: "personal",

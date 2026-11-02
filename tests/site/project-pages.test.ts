@@ -48,22 +48,29 @@ test("diagrams size their text without JavaScript, and art stays hidden from scr
   }
 });
 
-test("Hyper-V keeps what happened apart from the typical plan, and says which is which", () => {
+test("the Hyper-V timeline matches the plan, and the plan says its numbers are approximate", () => {
   const text = visibleText(page("/projects/hyperv"));
-  for (const q of ["How many VMs", "What was tested", "How did the cutover", "Also missing", "résumé"]) assert.ok(!text.includes(q), q);
-  assert.ok(text.includes("Test") && text.includes("phase 2"));
+  for (const q of ["How many VMs", "What was tested", "How did the cutover", "Also missing", "résumé", "typical", "isn’t a record"]) assert.ok(!text.includes(q), q);
   assert.doesNotMatch(page("/projects/hyperv"), /class="todo"/);
-  const [record, plan] = text.split("A typical plan for 200+ production servers");
+  const [timeline, plan] = text.split("The plan for 213 servers");
   assert.ok(plan, "no plan heading");
-  assert.ok(record.includes("Zero production downtime"));
-  assert.ok(plan.includes("It isn’t a record of this project"));
+  for (const step of ["phase 1 · before anything moved", "phase 2 · wave 0, in the lab", "phase 3 · waves 1 to 5", "213 servers in all", "over 200 production servers", "Zero production downtime", "May 2026", "November 14"]) assert.ok(timeline.includes(step), step);
+  for (const word of ["inventory", "lab", "waves"]) assert.ok(timeline.includes(word), word);
+  assert.ok(plan.includes("roughly how the move was planned, tested and run live"));
+  assert.ok(plan.includes("approximate"));
+  for (const fact of ["The total of 213 is exact", "The deadline was November 14", "over 180%", "finished in May 2026"]) assert.ok(plan.includes(fact), fact);
   for (const heading of ["Plan: know what’s moving", "Test: prove it before production", "Execute: the same runbook every time", "Rollback", "Who does what"]) assert.ok(plan.includes(heading), heading);
 });
 
-test("the Hyper-V waves add up to over 200 production servers", () => {
-  const sizes = [...visibleText(page("/projects/hyperv")).matchAll(/~(\d+) production/g)].map((m) => Number(m[1]));
+test("the Hyper-V waves add up to 213 servers, over 200 of them production", () => {
+  const text = visibleText(page("/projects/hyperv"));
+  const sizes = [...text.matchAll(/~(\d+) production/g)].map((m) => Number(m[1]));
   assert.equal(sizes.length, 4);
-  assert.ok(sizes.reduce((a, b) => a + b, 0) > 200);
+  const production = sizes.reduce((a, b) => a + b, 0);
+  assert.ok(production > 200);
+  const other = text.match(/Development and test servers\s*~(\d+)/);
+  assert.ok(other, "no non-production wave");
+  assert.equal(production + Number(other[1]), 213);
 });
 
 test("the pager wraps", () => {
