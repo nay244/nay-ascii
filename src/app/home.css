@@ -1,9 +1,5 @@
 /* Home's rules, ported from the mockup. The header, the toggle and the phone header are shared. */
 .page-home {
-  --soft: rgba(230, 233, 242, 0.72);
-
-  :root[data-theme="light"] & { --soft: rgba(31, 41, 51, 0.78); }
-
   /* The whole first screen is water. */
   .stage { position: relative; height: 100dvh; min-height: 520px; overflow: hidden; background: var(--pond); cursor: crosshair; user-select: none; }
   .stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
@@ -11,27 +7,29 @@
   /* Here the header floats over the water instead of sitting above the page. */
   .hdr { position: absolute; top: 0; left: 0; right: 0; cursor: auto; }
 
-  /* The size and place of daoho.dev's home text. */
-  .hero { position: absolute; left: 20vw; bottom: 128px; width: min(60vw, 54rem); font-size: 15px; line-height: max(22px, 3vh); pointer-events: none; }
-  .hero h1 { font-size: inherit; font-weight: 500; margin: 0; }
-  .hero p { margin: 0; color: var(--soft); }
+  /* The size and place of daoho.dev's home text. All of it looks like the title. */
+  .hero { position: absolute; left: 20vw; bottom: 128px; width: min(60vw, 54rem); font-size: 15px; font-weight: 500; line-height: max(22px, 3vh); color: var(--hero); pointer-events: none; }
+  .hero h1 { font: inherit; margin: 0; }
+  .hero p { margin: 0; }
   /* The quote hangs off a column of dots, like the dotted rules on the other pages. */
-  .quote { margin: 14px 0 0; font-size: 14px; line-height: 1.625; padding-left: 14px; background: radial-gradient(circle, var(--rule-dot) 0.9px, transparent 1.2px) left top / 4px 4px repeat-y; }
-  .quote footer { margin-top: 2px; font-size: 12px; color: var(--faint); }
-  .quote a { color: inherit; text-decoration: none; pointer-events: auto; cursor: pointer; transition: color 150ms ease; }
-  .quote a:hover { color: var(--hero); }
+  .quote { margin: 14px 0 0; padding-left: 14px; background: radial-gradient(circle, var(--rule-dot) 0.9px, transparent 1.2px) left top / 4px 4px repeat-y; }
+  .quote footer { margin-top: 2px; }
   .links { display: flex; gap: 18px; margin-top: 12px; }
-  .links a { color: var(--link); text-decoration: none; pointer-events: auto; cursor: pointer; transition: color 150ms ease; }
-  .links a:hover { color: var(--hero); }
+  /* Links match the text, so hovering is what shows they're links. */
+  .quote a, .links a { color: inherit; text-decoration: none; pointer-events: auto; cursor: pointer; }
+  .quote a:hover, .links a:hover { text-decoration: underline; }
 
   @media (max-height: 720px) {
     .hero { bottom: 48px; }
   }
   @media (max-width: 1023px) {
     .hero { left: 24px; right: 24px; bottom: 48px; width: auto; font-size: 14px; line-height: 1.6; }
-    .quote { font-size: 13px; }
   }
   @media (max-width: 1023px) and (max-height: 640px) {
     .hero { bottom: 32px; }
+  }
+  /* The quote's longest line doesn't fit a phone, so there it wraps on its own. */
+  @media (max-width: 520px) {
+    .quote br { display: none; }
   }
 }
