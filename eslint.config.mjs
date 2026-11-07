@@ -25,6 +25,8 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     // The local-only mockups, which never ship.
     ".superpowers/**",
+    // Wrangler's scratch files from the local preview.
+    ".wrangler/**",
     // Copies of approved files; they must stay byte for byte as they are.
     "src/lib/art/pieces/**",
     "src/lib/art/vendor/**",
