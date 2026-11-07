@@ -21,7 +21,7 @@ test("blocksOf lists each block, nested ones included, and skips .todo", () => {
 
 test("mockData runs a data file", { skip: !hasMockups }, () => {
   const { PROJECTS } = mockData("projects-data.js", ["PROJECTS"]);
-  assert.deepEqual(PROJECTS.map((p: { id: string }) => p.id), ["azure", "servicenow", "hyperv", "roluna"]);
+  assert.deepEqual(PROJECTS.map((p: { id: string }) => p.id), ["techconcepts", "azure", "servicenow", "hyperv", "roluna"]);
 });
 
 test("mockData runs a page's script up to the text it is told to stop at", { skip: !hasMockups }, () => {

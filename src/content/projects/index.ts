@@ -1,6 +1,6 @@
 import type { PieceSlug } from "../../lib/art/load.ts";
 
-// The four projects, in card order, with the text a card and a write-up's opening share. Copied from the mockups' projects-data.js.
+// The projects, in card order, with the text a card and a write-up's opening share. Copied from the mockups' projects-data.js.
 export type ProjectMeta = {
   slug: string;
   piece: PieceSlug;
@@ -13,6 +13,13 @@ export type ProjectMeta = {
 };
 
 export const PROJECTS: ProjectMeta[] = [
+  {
+    slug: "techconcepts", piece: "project-techconcepts-lesson", title: "TechConcepts", kind: "personal",
+    sum: "A free site of short, visual lessons on how technology works. Each one plays a real process step by step, then explains it in plain words, starting with networking.",
+    lede: "TechConcepts teaches how technology works by showing it: each lesson plays a real process, such as a laptop asking the network for an address, one step at a time, then explains it in plain words. There's no account and no sign-up. In progress, with the first track, Networking Concepts, at 4 of its 20 lessons.",
+    stack: ["Astro", "React", "TypeScript", "Vitest", "Playwright", "Cloudflare Workers"],
+    facts: [["lessons ready", "4 of 20"], ["accounts needed", "0"], ["status", "in progress"]],
+  },
   {
     slug: "azure", piece: "project-azure-virtualfw", title: "Azure Firewall Migration", kind: "work",
     sum: "Moved an Azure hub's firewalls from an active-passive pair to three active-active firewalls behind one internal load balancer, and cut four zones down to two.",

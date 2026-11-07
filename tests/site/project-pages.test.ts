@@ -3,7 +3,9 @@ import { existsSync } from "node:fs";
 import test from "node:test";
 import { blocksOf, hasMockups, hrefs, mockData, page, visibleText } from "./helpers.ts";
 
-const SLUGS = ["azure", "servicenow", "hyperv", "roluna"];
+const SLUGS = ["techconcepts", "azure", "servicenow", "hyperv", "roluna"];
+// TechConcepts has a banner but no diagram.
+const WITH_DIAGRAMS = SLUGS.filter((s) => s !== "techconcepts");
 
 test("write-ups match the mockup, block by block", { skip: !hasMockups }, () => {
   const { PROJECTS } = mockData("projects-data.js", ["PROJECTS"]);
@@ -15,7 +17,7 @@ test("write-ups match the mockup, block by block", { skip: !hasMockups }, () => 
 });
 
 test("each banner runs its picked scene", () => {
-  const picks = { azure: "project-azure-virtualfw", servicenow: "project-servicenow-dashboard", hyperv: "project-hyperv-move", roluna: "project-roluna-deck" };
+  const picks = { techconcepts: "project-techconcepts-lesson", azure: "project-azure-virtualfw", servicenow: "project-servicenow-dashboard", hyperv: "project-hyperv-move", roluna: "project-roluna-deck" };
   for (const [s, piece] of Object.entries(picks)) assert.match(page(`/projects/${s}`), new RegExp(`data-piece="${piece}"`), s);
 });
 
@@ -40,7 +42,7 @@ test("diagram labels are in the HTML, so they read without JavaScript", () => {
 });
 
 test("diagrams size their text without JavaScript, and art stays hidden from screen readers", () => {
-  for (const s of SLUGS) {
+  for (const s of WITH_DIAGRAMS) {
     const html = page(`/projects/${s}`), boxes = [...html.matchAll(/<div[^>]*data-piece=[^>]*>/g)];
     assert.ok(boxes.length >= 2, s);
     for (const [box] of boxes) assert.match(box, /aria-hidden="true"/, s);
@@ -73,9 +75,15 @@ test("the Hyper-V waves add up to 213 servers, over 200 of them production", () 
   assert.equal(production + Number(other[1]), 213);
 });
 
+test("the TechConcepts write-up links to the live site and says what is ready", () => {
+  assert.ok(hrefs(page("/projects/techconcepts")).includes("https://techconcepts.naaay-naing.workers.dev"));
+  const text = visibleText(page("/projects/techconcepts"));
+  for (const lesson of ["How the Internet Works", "Subnetting", "DHCP", "Firewalls"]) assert.ok(text.includes(lesson), lesson);
+});
+
 test("the pager wraps", () => {
   assert.ok(hrefs(page("/projects/azure")).includes("/projects/servicenow/"));
-  assert.ok(hrefs(page("/projects/roluna")).includes("/projects/azure/"));
+  assert.ok(hrefs(page("/projects/roluna")).includes("/projects/techconcepts/"));
 });
 
 test("no Partners on project pages", () => {

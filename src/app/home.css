@@ -18,6 +18,9 @@
   /* Links match the text, so hovering is what shows they're links. */
   .links a { color: inherit; text-decoration: none; pointer-events: auto; cursor: pointer; }
   .links a:hover { text-decoration: underline; }
+  /* The project link sits inside a sentence with no arrow, so a dotted underline shows it's a link. */
+  .now a { color: inherit; pointer-events: auto; cursor: pointer; text-decoration: underline dotted; text-underline-offset: 3px; }
+  .now a:hover { text-decoration-style: solid; }
 
   /* On a large monitor the text grows to 18px, and 3vh would spread its lines too far apart. */
   @media (min-width: 1800px) {

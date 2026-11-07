@@ -15,6 +15,18 @@ test("home says what Nay wrote, and nothing removed", () => {
   assert.ok(!text.includes("nay naing"));
 });
 
+test("under the description, home says what Nay is working on, linked to it", () => {
+  const html = page("/"), text = visibleText(html);
+  const at = text.indexOf("Currently working on TechConcepts");
+  assert.ok(at > text.indexOf("building the future for the people."), "not under the description");
+  assert.ok(at < text.indexOf("Whenever you find yourself"), "not above the quote");
+  const [link] = html.match(/<a[^>]*href="https:\/\/techconcepts\.naaay-naing\.workers\.dev"[^>]*>TechConcepts<\/a>/) ?? [];
+  assert.ok(link, "no TechConcepts link");
+  // It opens in a new tab, without handing the new tab a way back to this one.
+  assert.match(link, /target="_blank"/);
+  assert.match(link, /rel="noopener noreferrer"/);
+});
+
 test("the quote is word for word from the mockup", { skip: !hasMockups }, () => {
   const mock = readFileSync(".superpowers/brainstorm/mockups/index.html", "utf8");
   const quote = visibleText(mock.match(/<blockquote[\s\S]*?<p>([\s\S]*?)<\/p>/)[1]);

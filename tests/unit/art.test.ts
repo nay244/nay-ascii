@@ -15,7 +15,7 @@ const ART = join(import.meta.dirname, "..", "..", "src", "lib", "art");
 const MOCK = join(import.meta.dirname, "..", "..", ".superpowers", "brainstorm", "mockups");
 
 // The widths each piece is drawn at on the site: a scene on a card or in a wide band, a diagram in its panel.
-const SCENES: Record<string, number[]> = { "project-azure-virtualfw": [192, 324], "project-servicenow-dashboard": [192, 324], "project-hyperv-move": [192, 324], "project-roluna-deck": [192, 324], "blog-data-notebook": [192] };
+const SCENES: Record<string, number[]> = { "project-techconcepts-lesson": [192, 324], "project-azure-virtualfw": [192, 324], "project-servicenow-dashboard": [192, 324], "project-hyperv-move": [192, 324], "project-roluna-deck": [192, 324], "blog-data-notebook": [192] };
 const DIAGRAMS: Record<string, number> = { "project-azure": 62, "project-azure-before": 46, "project-azure-after": 46, "project-servicenow": 62, "project-servicenow-stages": 46, "project-hyperv": 46, "project-roluna": 46 };
 const LIBRARY = ["fuji-dawn-lake", "autumn-pagoda-maples", "owl-blink", "cloud-drift", "sleepy-moon"];
 const FLOWS: Record<string, string[]> = { "project-servicenow-stages": ["1", "2", "3", "4", "5", "6", "7", "8", "9"], "project-hyperv": ["plan", "test", "execute"], "project-roluna": ["adzuna", "ingest", "mongo", "api", "deck"] };
@@ -93,6 +93,7 @@ test("no frame shows an IP, Partners or a firewall maker", async () => {
 test("scenes paint only their approved words", () => {
   // Painted words are drawn in blocks, so the frame test above can't see them. This pins them, including no AZURE on the Azure scene.
   const words = (s: string) => [...new Set([...readFileSync(join(ART, "pieces", `${s}.js`), "utf8").matchAll(/"([A-Z][A-Z -]+)"/g)].map((m) => m[1]))].sort();
+  assert.deepEqual(words("project-techconcepts-lesson"), ["GET", "OK"]);
   assert.deepEqual(words("project-azure-virtualfw"), ["FIREWALL"]);
   assert.deepEqual(words("project-servicenow-dashboard"), []);
   assert.deepEqual(words("project-hyperv-move"), ["HYPER-V", "VMWARE"]);

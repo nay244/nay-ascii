@@ -32,10 +32,10 @@ function privateTerms(): RegExp[] {
   assert.equal(terms.length, 4);
   return terms.map(termPattern);
 }
-test("all 70 pages plus the 404 are in the output", () => {
-  const pages = ["/", "/projects", ...["azure", "servicenow", "hyperv", "roluna"].map((s) => `/projects/${s}`), "/career", "/blog",
+test("all 71 pages plus the 404 are in the output", () => {
+  const pages = ["/", "/projects", ...["techconcepts", "azure", "servicenow", "hyperv", "roluna"].map((s) => `/projects/${s}`), "/career", "/blog",
     "/blog/japan-2023", ...SERIES.map((s) => `/blog/${s.id}`), ...SERIES.flatMap((s) => s.notes.map((n) => `/blog/${s.id}/${n.slug}`))];
-  assert.equal(pages.length, 70);
+  assert.equal(pages.length, 71);
   for (const p of pages) assert.ok(page(p).length > 0, p);
   assert.ok(existsSync("out/404.html"));
 });

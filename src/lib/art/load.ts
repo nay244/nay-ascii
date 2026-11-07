@@ -2,6 +2,7 @@ import type { PieceMeta } from "./fit.ts";
 
 // One literal import per piece, so each is its own chunk and a page loads only the art it shows.
 const LOADERS = {
+  "project-techconcepts-lesson": () => import("./pieces/project-techconcepts-lesson.js"),
   "project-azure-virtualfw": () => import("./pieces/project-azure-virtualfw.js"),
   "project-servicenow-dashboard": () => import("./pieces/project-servicenow-dashboard.js"),
   "project-hyperv-move": () => import("./pieces/project-hyperv-move.js"),

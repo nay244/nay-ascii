@@ -3,11 +3,11 @@ import test from "node:test";
 import { getProject, PROJECTS } from "../../src/content/projects/index.ts";
 import { hasMockups, hrefs, mockData, page, visibleText } from "./helpers.ts";
 
-test("the list has four cards in order, each with its picked scene", () => {
+test("the list has five cards in order, each with its picked scene", () => {
   const html = page("/projects");
   const links = hrefs(html).filter((h) => /^\/projects\/.+/.test(h));
-  assert.deepEqual([...new Set(links)], ["/projects/azure/", "/projects/servicenow/", "/projects/hyperv/", "/projects/roluna/"]);
-  for (const piece of ["project-azure-virtualfw", "project-servicenow-dashboard", "project-hyperv-move", "project-roluna-deck"]) assert.match(html, new RegExp(`data-piece="${piece}"`));
+  assert.deepEqual([...new Set(links)], ["/projects/techconcepts/", "/projects/azure/", "/projects/servicenow/", "/projects/hyperv/", "/projects/roluna/"]);
+  for (const piece of ["project-techconcepts-lesson", "project-azure-virtualfw", "project-servicenow-dashboard", "project-hyperv-move", "project-roluna-deck"]) assert.match(html, new RegExp(`data-piece="${piece}"`));
   assert.doesNotMatch(html, /data-art=/);
 });
 
